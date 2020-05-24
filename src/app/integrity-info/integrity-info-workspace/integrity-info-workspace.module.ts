@@ -4,7 +4,12 @@ import { CommonModule } from '@angular/common';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { AwardeeFilterService } from '../integrity-filters/awardees-filter/awardees-filter.service';
+import { BaseAwardeeFilterService,
+  		AwardeeNameFilterService,
+  		AwardeeUeidunsFilterService,
+  		AwardeeCageFilterService,
+  		IntegrityTypeFilter,
+  		HierarchyFilterService } from '../../common/public-apis';
 
 import {
   SdsSideNavigationModule,
@@ -19,6 +24,8 @@ import { SdsSubheaderModule, SearchListServiceModule } from '@gsa-sam/layouts';
 import { IntegrityInfoWsItemModule } from './integrity-info-ws-item/integrity-info-ws-item.module';
 import { IntegrityInfoWorkspaceRoutingModule } from './integrity-info-workspace-routing.module';
 import { IntegrityInfoWorkspaceComponent } from './integrity-info-workspace.component';
+
+
 
 @NgModule({
   declarations: [IntegrityInfoWorkspaceComponent],
@@ -38,6 +45,12 @@ import { IntegrityInfoWorkspaceComponent } from './integrity-info-workspace.comp
     IntegrityInfoWorkspaceRoutingModule
   ],
   exports: [IntegrityInfoWorkspaceComponent],
-  providers: [SDSFormlyUpdateComunicationService, AwardeeFilterService]
+  providers: [SDSFormlyUpdateComunicationService, 
+  			BaseAwardeeFilterService,
+  			AwardeeNameFilterService,
+  			AwardeeUeidunsFilterService,
+  			AwardeeCageFilterService,
+  			IntegrityTypeFilter,
+  			HierarchyFilterService]
 })
 export class IntegrityInfoWorkspaceModule { }

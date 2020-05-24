@@ -55,6 +55,11 @@ export class IntegrityInfoService {
     			return false;
     		}
     	}
+    	if(filter.awardee) {
+    		if(!this.filterAwardee(record, filter.awardee)) {
+    			return false;
+    		}
+    	}
     	return true;
     }
 
@@ -77,6 +82,29 @@ export class IntegrityInfoService {
     filterRecordType(record, recordTypes) {
     	for(let i=0; i<recordTypes.length; i++) {
     		if(record.recordType == recordTypes[i].label) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+
+    filterAwardee(record, awardee) {
+        if((awardee.name && awardee.name.length == 0) || (awardee.ueiduns && awardee.ueiduns.length == 0) ||
+        	(awardee.cage && awardee.cage.length == 0)) {
+        	return true;
+        }
+    	for(let i=0; awardee.name && i < awardee.name.length; i++) {
+    		if(record.awardeeName == awardee.name[i].AWARDEE) {
+    			return true;
+    		}
+    	}
+    	for(let i=0; awardee.ueiduns && i < awardee.ueiduns.length; i++) {
+    		if(record.DUNS == awardee.ueiduns[i].DUNS) {
+    			return true;
+    		}
+    	}
+    	for(let i=0; awardee.cage && i < awardee.cage.length; i++) {
+    		if(record.CAGE == awardee.cage[i].CAGE) {
     			return true;
     		}
     	}

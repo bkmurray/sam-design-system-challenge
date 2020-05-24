@@ -26,7 +26,7 @@ export class BaseAwardeeFilterService {
 	}
 
 	match(type: EntityIDType, record, searchValue) {
-	    if(type == EntityIDType.UEIDUNS && record.DUNS && record.AWARDEE.toLowerCase().startsWith(searchValue.toLowerCase())) {
+	    if(type == EntityIDType.UEIDUNS && record.DUNS && record.DUNS.startsWith(searchValue)) {
 	      return true;
 	    }
 	    if(type == EntityIDType.CAGE && record.CAGE && record.CAGE.toLowerCase().startsWith(searchValue.toLowerCase())) {

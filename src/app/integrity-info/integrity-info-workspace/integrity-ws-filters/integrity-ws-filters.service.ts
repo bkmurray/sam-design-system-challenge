@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
-import { IntegrityTypeFilter } from '../../../common/public-apis';
-import { AwardeeFilterService } from '../../integrity-filters/awardees-filter/awardees-filter.service';
+import { IntegrityTypeFilter, 
+     AwardeeNameFilterService,
+     AwardeeCageFilterService,
+     AwardeeUeidunsFilterService,
+     HierarchyFilterService } from '../../../common/public-apis';
 
 @Injectable()
 export class IntegrityWsFiltersService {
 
-  constructor(private recordTypeFilter: IntegrityTypeFilter, private awardeeNameService: AwardeeFilterService) { }
+  constructor(private recordTypeFilter: IntegrityTypeFilter, 
+  	private awardeeNameService: AwardeeNameFilterService,
+  	private awardeeUeidunsService: AwardeeUeidunsFilterService,
+  	private awardeeCageService: AwardeeCageFilterService,
+  	private hierarchyService: HierarchyFilterService) { }
 
   public model = {};
 
@@ -18,6 +25,17 @@ export class IntegrityWsFiltersService {
 	    type: 'input',
 	    templateOptions: { 
 	      label: 'Keyword',
+	    }
+	  },
+	  {
+	    key: 'agency',
+	    wrappers: ['filterwrapper'],
+	    type: 'autocomplete',
+	    templateOptions: { 
+	      	label: 'Federal Hierarchy',
+			service: this.hierarchyService,
+			configuration: this.hierarchyService.settings,
+			model: this.hierarchyService.model
 	    }
 	  },	 
 	  {
@@ -33,6 +51,26 @@ export class IntegrityWsFiltersService {
 	  				service: this.awardeeNameService,
 	  				configuration: this.awardeeNameService.settings,
 	  				model: this.awardeeNameService.model
+	  			}
+	  		},
+	  		{
+	  			key: 'ueiduns',
+	  			type: 'autocomplete',
+	  			templateOptions: {
+	  				label: 'Unique Entity ID',
+	  				service: this.awardeeUeidunsService,
+	  				configuration: this.awardeeUeidunsService.settings,
+	  				model: this.awardeeUeidunsService.model
+	  			}
+	  		},
+	  		{
+	  			key: 'cage',
+	  			type: 'autocomplete',
+	  			templateOptions: {
+	  				label: 'CAGE / NCAGE',
+	  				service: this.awardeeCageService,
+	  				configuration: this.awardeeCageService.settings,
+	  				model: this.awardeeCageService.model
 	  			}
 	  		}
 	  	]

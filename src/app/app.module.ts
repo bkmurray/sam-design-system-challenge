@@ -11,9 +11,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { SamFooterModule } from './common/sam-footer/sam-footer.module';
 import { SamHeaderModule } from './common/sam-header/sam-header.module';
 
-import { IntegrityTypeFilter } from './common/public-apis';
-import { BaseAwardeeFilterService } from './integrity-info/integrity-filters/awardees-filter/base-awardee-filter.service';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -29,7 +26,7 @@ import { AppComponent } from './app.component';
     SamHeaderModule,
     AppRoutingModule
   ],
-  providers: [IntegrityTypeFilter, BaseAwardeeFilterService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
