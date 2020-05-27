@@ -30,7 +30,6 @@
               "node_modules/uswds/src/stylesheets/uswds.scss",
               "node_modules/@gsa-sam/sam-styles/src/stylesheets/sam.scss",
               "src/material.theme.scss",
-              "src/fix.scss",
               "src/styles.scss"
             ],
             "scripts": [
