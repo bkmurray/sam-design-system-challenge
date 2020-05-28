@@ -17,12 +17,15 @@ export class DownloadFiltersComponent implements OnInit {
   model = {};
   options: FormlyFormOptions = {};
 
-  autocompleteSettings = new SDSAutocompletelConfiguration();
-  autocompleteModel = new SDSSelectedItemModel();
+  keywordSettings = new SDSAutocompletelConfiguration();
+  keywordModel = new SDSSelectedItemModel();
+  typeSettings = new SDSAutocompletelConfiguration();
+  typeModel = new SDSSelectedItemModel();
 
   fields: FormlyFieldConfig[] = [
     {
-      key: 'searchKeyword',
+      key: 'searchKeyword',     
+      wrappers: ['filterwrapper'],
       templateOptions: { label: 'Search by Keyword' },
       fieldGroup: [{
         key: 'keywordSearch',
@@ -32,25 +35,19 @@ export class DownloadFiltersComponent implements OnInit {
           label: 'Keyword',
           placeholder: '',
           inputType: 'text',
-          configuration: this.autocompleteSettings,
-          model: this.autocompleteModel,
+          configuration: this.keywordSettings,
+          model: this.keywordModel,
           service: this.autocompleteService,
-          isTagModeEnabled: true,
           change: (field, $event) => {
             this.applyFilters(field);
           }
-        },
-        lifecycle: {
-          onInit: (form: FormGroup, field: FormlyFieldConfig) => {
-          }
         }
-      }],
-      lifecycle:{
-      }
+      }]
     },
     {
-      key: 'status',
-      templateOptions: { label: 'Status' },
+      key: 'status',     
+      wrappers: ['filterwrapper'],
+      templateOptions: { label: 'Status'}, 
       fieldGroup: [{
         key: 'status',
         id: 'status',
@@ -60,21 +57,16 @@ export class DownloadFiltersComponent implements OnInit {
           labelClass: 'usa-sr-only',
           options: [
             {
-              key: 'Available Only',
-              value: 'Active'
+              key: 'Active',
+              value: 'Available Only'
             }
           ]
-        },
-        lifecycle: {
-          onInit: (form: FormGroup, field: FormlyFieldConfig) => {
-          }
         }
-      }],
-      lifecycle:{
-      }
+      }]
     },
     {
-      key: 'searchType',
+      key: 'searchType',     
+      wrappers: ['filterwrapper'],
       templateOptions: { label: 'Search by Type' },
       fieldGroup: [{
         key: 'typeSearch',
@@ -84,21 +76,15 @@ export class DownloadFiltersComponent implements OnInit {
           label: 'Type',
           placeholder: '',
           inputType: 'text',
-          configuration: this.autocompleteSettings,
-          model: this.autocompleteModel,
+          configuration: this.typeSettings,
+          model: this.typeModel,
           service: this.autocompleteService,
           isTagModeEnabled: true,
           change: (field, $event) => {
             this.applyFilters(field);
           }
-        },
-        lifecycle: {
-          onInit: (form: FormGroup, field: FormlyFieldConfig) => {
-          }
         }
-      }],
-      lifecycle:{
-      }
+      }]
     },
     {
       key: 'domain',
@@ -142,13 +128,7 @@ export class DownloadFiltersComponent implements OnInit {
             }
           ]
         },
-        lifecycle: {
-          onInit: (form: FormGroup, field: FormlyFieldConfig) => {
-          }
-        }
-      }],
-      lifecycle:{
-      }
+      }]
     },
     {
       key: 'ExpireDate',
@@ -165,8 +145,6 @@ export class DownloadFiltersComponent implements OnInit {
             change: (field, $event) => {
               this.applyFilters(field);
             }
-          },
-          lifecycle: {
           }
         },
         {
@@ -178,13 +156,9 @@ export class DownloadFiltersComponent implements OnInit {
             change: (field, $event) => {
               this.applyFilters(field);
             }
-          },
-          lifecycle: {
           }
         }
-      ],
-      lifecycle:{
-      }
+      ]
     },
     {
       key: 'CreateDate',
@@ -201,8 +175,6 @@ export class DownloadFiltersComponent implements OnInit {
             change: (field, $event) => {
               this.applyFilters(field);
             }
-          },
-          lifecycle: {
           }
         },
         {
@@ -214,27 +186,32 @@ export class DownloadFiltersComponent implements OnInit {
             change: (field, $event) => {
               this.applyFilters(field);
             }
-          },
-          lifecycle: {
           }
         }
-      ],
-      lifecycle:{
-      }
+      ]
     }
   ]
   constructor( private autocompleteService: AutocompleteService) {
-    this.setup;
+    this.setup();
    }
 
   setup(){
     
-    this.autocompleteSettings.id = 'Keyword';
-    this.autocompleteSettings.primaryKeyField = 'id';
-    this.autocompleteSettings.primaryTextField = 'name';
-    this.autocompleteSettings.selectionMode = SelectionMode.MULTIPLE;
-    this.autocompleteSettings.isFreeTextEnabled = true;
-    this.autocompleteSettings.debounceTime = 250;
+    this.keywordSettings.id = 'Keyword';
+    this.keywordSettings.primaryKeyField = 'fileName';
+    this.keywordSettings.primaryTextField = 'userId';
+    this.keywordSettings.selectionMode = SelectionMode.MULTIPLE;
+    this.keywordSettings.isFreeTextEnabled = true;
+    this.keywordSettings.debounceTime = 250;
+    this.keywordSettings.isTagModeEnabled = true;
+    
+    this.typeSettings.id = 'Keyword';
+    this.typeSettings.primaryKeyField = 'fileName';
+    this.typeSettings.primaryTextField = 'userId';
+    this.typeSettings.selectionMode = SelectionMode.MULTIPLE;
+    this.typeSettings.isFreeTextEnabled = true;
+    this.typeSettings.debounceTime = 250;
+    this.typeSettings.isTagModeEnabled = true;
   }
   ngOnInit() {
   }
