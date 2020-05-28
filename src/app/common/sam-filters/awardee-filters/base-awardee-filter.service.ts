@@ -10,6 +10,11 @@ export enum EntityIDType {
   CAGE
 }
 
+/**
+ *  This class manages the awardee data.  It's not a full entity service because it's only the entities that have integrity records
+ *  entered by DoD.  Analysis could be done to determine if it's better to use a generic entity autocomplete or to prefilter to only
+ *  include the few thousand entities that are in the integrity database, as this represents.
+ */
 @Injectable()
 export class BaseAwardeeFilterService {
 

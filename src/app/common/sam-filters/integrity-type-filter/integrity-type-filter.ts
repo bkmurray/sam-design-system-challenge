@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { SDSAutocompleteServiceInterface, 
 		 SDSHiercarchicalServiceResult, 
-		 SDSSelectedItemModel, 
-		 SDSAutocompletelConfiguration, 
-		 SelectionMode } from '@gsa-sam/components';
+		 SDSSelectedItemModel
+         } from '@gsa-sam/components';
 
+/**
+ *  This autocomplete service provides the definitive list of record types for integrity information.
+ */
 @Injectable()
 export class IntegrityTypeFilter implements SDSAutocompleteServiceInterface {
 	
    	public model: SDSSelectedItemModel = new SDSSelectedItemModel();
-   	public settings: SDSAutocompletelConfiguration = new SDSAutocompletelConfiguration();
+
     private data = [
         { 'label': 'Administrative Agreement' },
         { 'label': 'DoD Determination of Contractor Fault' },
@@ -22,14 +24,6 @@ export class IntegrityTypeFilter implements SDSAutocompleteServiceInterface {
     ];
 
    	constructor() {
-		this.settings.id = 'termination_type';
-		this.settings.primaryKeyField = 'label';
-		this.settings.primaryTextField = 'label';
-		this.settings.secondaryTextField = null;
-		this.settings.labelText = 'label';
-		this.settings.selectionMode = SelectionMode.MULTIPLE;
-		this.settings.autocompletePlaceHolderText = 'Select...';
-		this.settings.debounceTime = 100;
 	}
 
     getDataByText(currentItems: number, searchValue?: string): Observable<SDSHiercarchicalServiceResult> {

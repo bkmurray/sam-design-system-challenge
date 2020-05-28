@@ -4,6 +4,9 @@ import { SearchParameters, SearchResult, SearchListConfiguration } from '@gsa-sa
 
 import { integrityData } from './integrity.data';
 
+/**
+ *  The integrity service emulates basic sorting and filtering for most of the filters (except keyword).
+ */
 @Injectable()
 export class IntegrityInfoService {
 
@@ -23,6 +26,9 @@ export class IntegrityInfoService {
 	    ]
 	};
 
+    /*
+     * Here is the main method that the design system calls
+     */
     getData(search: SearchParameters): Observable<SearchResult> {
 
         let records = integrityData;
@@ -89,10 +95,6 @@ export class IntegrityInfoService {
     }
 
     filterAwardee(record, awardee) {
-        if((awardee.name && awardee.name.length == 0) || (awardee.ueiduns && awardee.ueiduns.length == 0) ||
-        	(awardee.cage && awardee.cage.length == 0)) {
-        	return true;
-        }
     	for(let i=0; awardee.name && i < awardee.name.length; i++) {
     		if(record.awardeeName == awardee.name[i].AWARDEE) {
     			return true;
@@ -108,6 +110,11 @@ export class IntegrityInfoService {
     			return true;
     		}
     	}
+        if((!awardee.name || (awardee.name && awardee.name.length == 0)) && 
+        	(!awardee.ueiduns || (awardee.ueiduns && awardee.ueiduns.length == 0)) &&
+        	(!awardee.cage || (awardee.cage && awardee.cage.length == 0))) {
+        	return true;
+        }
     	return false;
     }
 

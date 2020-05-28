@@ -3,30 +3,23 @@ import { Observable, of } from 'rxjs';
 
 import { SDSAutocompleteServiceInterface, 
 		 SDSHiercarchicalServiceResult, 
-		 SDSSelectedItemModel, 
-		 SDSAutocompletelConfiguration, 
-		 SelectionMode } from '@gsa-sam/components';
+		 SDSSelectedItemModel
+		} from '@gsa-sam/components';
 
 import { subtierDataByRole } from './hierarchy.data';
 
+/**
+ * This autocomplete service emulates a role based federal hierarchy service.  It is prepoluated with the list of DoD subtiers that have
+ * entered integrity records into FAPIIS.  It is not intended to be a full hierarchy.
+ */
 @Injectable()
 export class HierarchyFilterService implements SDSAutocompleteServiceInterface {
 
    	public data;
 
    	public model: SDSSelectedItemModel = new SDSSelectedItemModel();
-   	public settings: SDSAutocompletelConfiguration = new SDSAutocompletelConfiguration();
 
    	constructor() {
-		this.settings.id = 'awardeeName';
-		this.settings.primaryKeyField = 'subtier';
-		this.settings.primaryTextField = 'subtier';
-		this.settings.secondaryTextField = 'agencyCode';
-		this.settings.labelText = 'Agency';
-		this.settings.selectionMode = SelectionMode.MULTIPLE;
-		this.settings.autocompletePlaceHolderText = 'Enter an agency name or code';
-		this.settings.debounceTime = 100;
-		this.data = this.initData();
 	}
 
 	initData() {
