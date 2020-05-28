@@ -12,9 +12,7 @@ export class DownloadItemComponent implements OnInit {
   menu = {
     trigger: 'primary',
     actions: [
-      { id: 'ViewBtn', icon: 'bars', text: 'View' },
-      { id: 'UpdateBtn', icon: 'bars', text: 'Update' },
-      { id: 'DeactivateBtn', icon: 'bars', text: 'Deactivate' }
+      { id: 'DeleteBtn', icon: 'bars', text: 'Delete' }
     ]
   };
 
