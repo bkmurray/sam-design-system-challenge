@@ -19,7 +19,6 @@ export class DownloadItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  	console.log(this.model);
   }
 
 
