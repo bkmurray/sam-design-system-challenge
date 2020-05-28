@@ -1,19 +1,8 @@
-<!-- <sds-toolbar  class="top-205" [expanded]="true">
-    <sds-accordion-item-header> Refine By </sds-accordion-item-header>
-    <sds-filters [form]="form" [fields]="fields" [model]="model" [isHistoryEnable]="false" (filterChange) = "filterChange$.next($event)" ></sds-filters>
-    <button (click)="clearFilters()" id = "clearFilters">Clear Filters</button>
-</sds-toolbar> -->
-<sds-toolbar [expanded]="true">
+<sds-toolbar  class="top-205" [expanded]="true">
     <sds-accordion>
-      <sds-accordion-item [expanded]="false">
-        <sds-accordion-item-header>Navigate To</sds-accordion-item-header>
-        <sds-side-navigation #sideNav [model]="navigationModel"></sds-side-navigation>
-      </sds-accordion-item>
-      <sds-accordion-item [expanded]="true">
-        <sds-accordion-item-header>Filter By</sds-accordion-item-header>
-        <sds-filters [form]="form" [fields]="filterService.filters" [model]="filterService.model" 
-                (filterChange)="filterChange$.next($event)">
-        </sds-filters>
-      </sds-accordion-item>
-    </sds-accordion>
-  </sds-toolbar>
+    <sds-accordion-item [expanded]="true">
+      <sds-accordion-item-header> Refine By</sds-accordion-item-header>
+      <sds-filters [form]="form" [fields]="fields" [model]="model" [isHistoryEnable]="false" (filterChange) = "filterChange$.next($event)" ></sds-filters>
+  </sds-accordion-item>
+</sds-accordion>
+</sds-toolbar>

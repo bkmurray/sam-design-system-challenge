@@ -16,6 +16,9 @@ export class DownloadFiltersComponent implements OnInit {
   model = {};
   options: FormlyFormOptions = {};
 
+  autocompleteSettings = new SDSAutocompletelConfiguration();
+  autocompleteModel = new SDSSelectedItemModel();
+
   fields: FormlyFieldConfig[] = [
     {
       key: 'searchKeyword',
@@ -28,6 +31,8 @@ export class DownloadFiltersComponent implements OnInit {
           label: 'Keyword',
           placeholder: '',
           inputType: 'text',
+          configuration: this.autocompleteSettings,
+          model: this.autocompleteModel,
           isTagModeEnabled: true,
           change: (field, $event) => {
             this.applyFilters(field);
@@ -74,9 +79,11 @@ export class DownloadFiltersComponent implements OnInit {
         id: 'type',
         type: 'autocomplete',
         templateOptions: {
-          label: 'Keyword',
+          label: 'Type',
           placeholder: '',
           inputType: 'text',
+          configuration: this.autocompleteSettings,
+          model: this.autocompleteModel,
           isTagModeEnabled: true,
           change: (field, $event) => {
             this.applyFilters(field);
@@ -215,6 +222,13 @@ export class DownloadFiltersComponent implements OnInit {
   ]
   constructor() { }
 
+  setup(){
+    
+    this.autocompleteSettings.id = 'Keyword';
+    this.autocompleteSettings.primaryKeyField = 'id';
+    this.autocompleteSettings.primaryTextField = 'name';
+    this.autocompleteSettings.selectionMode = SelectionMode.MULTIPLE;
+  }
   ngOnInit() {
   }
 

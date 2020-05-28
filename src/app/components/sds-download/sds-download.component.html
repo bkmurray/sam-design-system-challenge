@@ -2,14 +2,15 @@
 	<div class="grid-container">
 		<div class="sds-page condensed">
 			<div class="grid-row grid-gap-4">
+				<app-download-filters></app-download-filters>
 				<div class="grid-col-12 tablet:grid-col-fill">
-			  	  <search-list-layout #resultList [service]="service" [configuration]="service.model">
-			          <ng-template #resultContent let-item>
-			              <div>
-			              	  <download-item [model]="item"></download-item>
-			              </div>
-			          </ng-template>
-			      </search-list-layout>
+					<search-list-layout #resultList [service]="service" [configuration]="service.model">
+						<ng-template #resultContent let-item>
+							<div>
+								<download-item [model]="item"></download-item>
+							</div>
+						</ng-template>
+					</search-list-layout>
 		  		</div>
 			</div>
 		</div>
