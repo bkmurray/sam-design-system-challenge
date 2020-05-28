@@ -3,6 +3,7 @@ import { SDSAutocompletelConfiguration, SDSSelectedItemModel, SelectionMode } fr
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { BehaviorSubject } from 'rxjs';
 import { FormGroup } from '@angular/forms';
+import { AutocompleteService } from '../download-service/autocomplete.service';
 
 @Component({
   selector: 'app-download-filters',
@@ -33,6 +34,7 @@ export class DownloadFiltersComponent implements OnInit {
           inputType: 'text',
           configuration: this.autocompleteSettings,
           model: this.autocompleteModel,
+          service: this.autocompleteService,
           isTagModeEnabled: true,
           change: (field, $event) => {
             this.applyFilters(field);
@@ -84,6 +86,7 @@ export class DownloadFiltersComponent implements OnInit {
           inputType: 'text',
           configuration: this.autocompleteSettings,
           model: this.autocompleteModel,
+          service: this.autocompleteService,
           isTagModeEnabled: true,
           change: (field, $event) => {
             this.applyFilters(field);
@@ -111,7 +114,7 @@ export class DownloadFiltersComponent implements OnInit {
           options: [
             {
               key: 'Select All',
-              value: ''
+              value: 'Select All'
             },
             {
               key: 'Assistance Listings',
@@ -220,7 +223,9 @@ export class DownloadFiltersComponent implements OnInit {
       }
     }
   ]
-  constructor() { }
+  constructor( private autocompleteService: AutocompleteService) {
+    this.setup;
+   }
 
   setup(){
     
@@ -228,6 +233,8 @@ export class DownloadFiltersComponent implements OnInit {
     this.autocompleteSettings.primaryKeyField = 'id';
     this.autocompleteSettings.primaryTextField = 'name';
     this.autocompleteSettings.selectionMode = SelectionMode.MULTIPLE;
+    this.autocompleteSettings.isFreeTextEnabled = true;
+    this.autocompleteSettings.debounceTime = 250;
   }
   ngOnInit() {
   }
