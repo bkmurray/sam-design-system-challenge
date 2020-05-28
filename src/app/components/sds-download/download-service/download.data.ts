@@ -1,7 +1,4 @@
 export let downloadData = [
-	{
-  "totalRecords": 50,
-  "mydownloads": [
     {
       "id": 749566,
       "userId":  "testing@gsa.gov",
@@ -221,7 +218,5 @@ export let downloadData = [
       "createDate": "May 21, 2020",
       "expireDate": "May 28, 2020",
       "status": "Active"
-    },
-  ]
-}
+    }
 ];

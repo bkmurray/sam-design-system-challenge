@@ -3,7 +3,7 @@
 		<div class="sds-page condensed">
 			<div class="grid-row grid-gap-4">
 				<div class="grid-col-12 tablet:grid-col-fill">
-			  	  <search-list-layout #resultList [service]="service" [configuration]="service.model.mydownloads">
+			  	  <search-list-layout #resultList [service]="service" [configuration]="service.model">
 			          <ng-template #resultContent let-item>
 			              <div>
 			              	  <download-item [model]="item"></download-item>
