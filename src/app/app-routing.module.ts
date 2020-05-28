@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
       path: '',
-      redirectTo: '/workspace/downloads', patchMatch: 'full'
+      redirectTo: '/workspace/downloads', pathMatch: 'full'
   },
   {
     path: 'workspace/downloads',
@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
       path: '**',
-      redirectTo: '/workspace/downloads', patchMatch: 'full'
+      redirectTo: '/workspace/downloads', pathMatch: 'full'
   }
 ];
 
