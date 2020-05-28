@@ -67,7 +67,7 @@ export let downloadData = [
     },
     {
       "id": 149491,
-      "userId": "matthew.finnell+3@gsa.gov",
+      "userId": "testing@gsa.gov",
       "domain": "Entity Exclusion Information",
       "format": "Full CSV",
       "fileName": "EntityInformation-20200413-045704",
@@ -89,7 +89,7 @@ export let downloadData = [
     },
     {
       "id": 149491,
-      "userId": "matthew.finnell+3@gsa.gov",
+      "userId": "testing@gsa.gov",
       "domain": "Entity Exclusion Information",
       "format": "Full CSV",
       "fileName": "ExclusionInformation-20200411-045704",
@@ -100,7 +100,7 @@ export let downloadData = [
     },
     {
       "id": 149499,
-      "userId": "matthew.finnell+3@gsa.gov",
+      "userId": "testing@gsa.gov",
       "domain": "Entity Information",
       "format": "Full CSV",
       "fileName": "EntityInformation-045711",
@@ -177,7 +177,7 @@ export let downloadData = [
     },
     {
       "id": 191,
-      "userId": "matthew.finnell+3@gsa.gov",
+      "userId": "testing@gsa.gov",
       "domain": "Federal Hierarchy",
       "format": "PDF",
       "fileName": "FH-050809",
@@ -199,7 +199,7 @@ export let downloadData = [
     },
     {
       "id": 149491,
-      "userId": "matthew.finnell+3@gsa.gov",
+      "userId": "testing@gsa.gov",
       "domain": "Federal Hierarchy",
       "format": "PDF",
       "fileName": "FH_DataSvc_Extract_test1",
@@ -210,7 +210,73 @@ export let downloadData = [
     },
     {
       "id": 199,
-      "userId": "matthew.finnell+3@gsa.gov",
+      "userId": "testing@gsa.gov",
+      "domain": "CFDA",
+      "format": "Full CSV",
+      "fileName": "CFDA045711",
+      "searchType": "Search Results",
+      "createDate": "May 21, 2020",
+      "expireDate": "May 28, 2020",
+      "status": "Active"
+    },
+    {
+      "id": 1991,
+      "userId": "testing@gsa.gov",
+      "domain": "CFDA",
+      "format": "Full CSV",
+      "fileName": "CFDA045711",
+      "searchType": "Search Results",
+      "createDate": "May 21, 2020",
+      "expireDate": "May 28, 2020",
+      "status": "Active"
+    },
+    {
+      "id": 1992,
+      "userId": "testing@gsa.gov",
+      "domain": "CFDA",
+      "format": "Full CSV",
+      "fileName": "CFDA045711",
+      "searchType": "Search Results",
+      "createDate": "May 21, 2020",
+      "expireDate": "May 28, 2020",
+      "status": "Active"
+    },
+    {
+      "id": 1939,
+      "userId": "testing@gsa.gov",
+      "domain": "CFDA",
+      "format": "Full CSV",
+      "fileName": "CFDA045711",
+      "searchType": "Search Results",
+      "createDate": "May 21, 2020",
+      "expireDate": "May 28, 2020",
+      "status": "Active"
+    },
+    {
+      "id": 1994,
+      "userId": "testing@gsa.gov",
+      "domain": "CFDA",
+      "format": "Full CSV",
+      "fileName": "CFDA045711",
+      "searchType": "Search Results",
+      "createDate": "May 21, 2020",
+      "expireDate": "May 28, 2020",
+      "status": "Active"
+    },
+    {
+      "id": 1995,
+      "userId": "testing@gsa.gov",
+      "domain": "CFDA",
+      "format": "Full CSV",
+      "fileName": "CFDA045711",
+      "searchType": "Search Results",
+      "createDate": "May 21, 2020",
+      "expireDate": "May 28, 2020",
+      "status": "Active"
+    },
+    {
+      "id": 1996,
+      "userId": "testing@gsa.gov",
       "domain": "CFDA",
       "format": "Full CSV",
       "fileName": "CFDA045711",
