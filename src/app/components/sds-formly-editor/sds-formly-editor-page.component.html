@@ -1,0 +1,5 @@
+<ng-template>
+	<h2>{{page.title}}</h2>
+	<p class="measure-5">{{page.instruction}}</p>
+	<formly-form [form]="form" [fields]="page.fields" (modelChange)="onModelChange($event)" [model]="model"></formly-form>
+</ng-template>

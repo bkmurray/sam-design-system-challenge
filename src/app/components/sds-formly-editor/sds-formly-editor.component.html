@@ -1,0 +1,39 @@
+<main>
+	<div class="grid-container">
+		<div class="sds-page condensed">
+			<div class="grid-row grid-gap-4">
+				<div class="grid-col-12 tablet:grid-col-auto">
+					<sds-toolbar [expanded]="true">
+				      <sds-accordion>
+				        <sds-accordion-item [expanded]="true">
+				          <sds-side-navigation #sideNav [model]="navigationModel"></sds-side-navigation>
+				        </sds-accordion-item>
+				      </sds-accordion>
+				    </sds-toolbar>
+				</div>
+				<div class="grid-col-12 tablet:grid-col-fill">
+					<ng-container [ngTemplateOutlet]="content"></ng-container>
+					<sds-formly-editor-page *ngFor="let page of pages; let index = index; let last = last;" [form]="forms.at(index)" [model]="model" (modelChange)="onModelChange($event)" [page]="page">
+					</sds-formly-editor-page>
+					<div class="grid-row flex-row grid-gap margin-top-4">
+						<div class="grid-col flex-auto">
+					        <button class="mobile:grid-col-2 usa-button usa-button--secondary" (click)="previous();">    
+								Previous
+					      	</button>
+					     </div>
+					     <div class="grid-col flex-auto">
+					        <button class="mobile:grid-col-2 usa-button usa-button--secondary" (click)="next();">
+					        	Next
+					        </button>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+
+
+
+

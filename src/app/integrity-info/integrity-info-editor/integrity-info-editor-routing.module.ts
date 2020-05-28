@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SystemAccountEditorComponent } from './system-account-editor.component';
+import { IntegrityInfoEditorComponent } from './integrity-info-editor.component';
 
 const routes: Routes = [
 	{
 		path: '',
-		component: SystemAccountEditorComponent
+		component: IntegrityInfoEditorComponent
 	}
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SystemAccountEditorRoutingModule { }
+export class IntegrityInfoEditorRoutingModule { }

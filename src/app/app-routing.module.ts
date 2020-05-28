@@ -4,15 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
   	path: '',
-  	redirectTo: '/system-account/editor', pathMatch: 'full'
+  	redirectTo: '/workspace/integrity-info/edit', pathMatch: 'full'
   },
   {
-    path: 'system-account/editor',
-    loadChildren: () => import('./system-account/system-account-editor/system-account-editor.module').then(m => m.SystemAccountEditorModule)
+    path: 'workspace/integrity-info/edit',
+    loadChildren: () => import('./integrity-info/integrity-info-editor/integrity-info-editor.module').then(m => m.IntegrityInfoEditorModule)
   },
   {
   	path: '**',
-  	redirectTo: '/system-account/editor', pathMatch: 'full'
+  	redirectTo: '/workspace/integrity-info/edit', pathMatch: 'full'
   }
 ];
 
