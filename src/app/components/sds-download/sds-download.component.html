@@ -1,3 +1,21 @@
+<sds-subheader>
+  <!-- BACK BUTTON -->
+  <button class="sds-button sds-button--circular">
+	<span class="sr-only">Back</span>
+    <fa-icon [icon]="['fas', 'chevron-left']" [fixedWidth]="true"></fa-icon>
+  </button>
+
+  <!-- TITLE -->
+  <h1 class="font-heading-md text-semibold tablet-lg:width-mobile">Downloads Workspace</h1>
+
+  <!-- SEARCH (OPTIONAL) -->
+  <sds-search
+    (term)="newSearch($event)"
+    parentSelector=".grid-row"
+    placeholder="Enter an ID, name, or keyword"
+    inputClass="width-card-lg widescreen:width-mobile display-none desktop-lg:display-inline-block"
+  ></sds-search>
+</sds-subheader>
 <main>
 	<div class="grid-container">
 		<div class="sds-page condensed">

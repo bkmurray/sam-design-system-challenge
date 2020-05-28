@@ -10,16 +10,16 @@ export class DownloadService {
   constructor() { }
   
     public model: SearchListConfiguration = {
-	  defaultSortValue: "createDateAscending",
+	  defaultSortValue: "createDateDescending",
 	  pageSize: 25,
 	  sortList:
 	    [
-	      { text: "File Name (A-Z)", value: "fileNameAscending" },
-	      { text: "File Name (Z-A)", value: "fileNameDescending" },
 	      { text: "Create Date (Newest)", value: "createDateDescending" },
 	      { text: "Create Date (Oldest)", value: "createDateAscending" },
 	      { text: "Expire Date (Newest)", value: "expireDateDescending" },
 	      { text: "Expire Date (Oldest)", value: "expireDateAscending" },
+	      { text: "File Name (A-Z)", value: "fileNameAscending" },
+	      { text: "File Name (Z-A)", value: "fileNameDescending" },
 	    ]
 	};
   
