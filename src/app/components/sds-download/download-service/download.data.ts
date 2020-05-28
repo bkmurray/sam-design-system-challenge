@@ -4,7 +4,7 @@ export let downloadData = [
   "mydownloads": [
     {
       "id": 749566,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "Contract Data",
       "format": "Full CSV",
       "fileName": "ContractData-20200429-022140",
@@ -15,7 +15,7 @@ export let downloadData = [
     },
     {
       "id": 749159,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "Entity Information",
       "format": "Full CSV",
       "fileName": "EntityInformation-20200504-085129_Exclusion",
@@ -26,7 +26,7 @@ export let downloadData = [
     },
     {
       "id": 749158,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "Entity Information",
       "format": "Full CSV",
       "fileName": "EntityInformation-20200504-085129_Entity",
@@ -37,7 +37,7 @@ export let downloadData = [
     },
     {
       "id": 749031,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "Contract Data",
       "format": "Full CSV",
       "fileName": "ContractData-20200429-022140",
@@ -48,7 +48,7 @@ export let downloadData = [
     },
     {
       "id": 747964,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "Entity Information",
       "format": "Full CSV",
       "fileName": "EntityInfor20200408-050809",
@@ -59,7 +59,7 @@ export let downloadData = [
     },
     {
       "id": 747962,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "Entity Information",
       "format": "Full CSV",
       "fileName": "EntityInformation-20200408-050809",
@@ -81,7 +81,7 @@ export let downloadData = [
     },
     {
       "id": 747947,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "Entity Information",
       "format": "Full CSV",
       "fileName": "EntityInformation-20200408-044220",
@@ -114,7 +114,7 @@ export let downloadData = [
     },
     {
       "id": 749533,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "CFDA",
       "format": "CSV",
       "fileName": "CFDA-140",
@@ -125,7 +125,7 @@ export let downloadData = [
     },
     {
       "id": 749669,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "CFDA",
       "format": "PDF",
       "fileName": "CFDA-PDF",
@@ -136,7 +136,7 @@ export let downloadData = [
     },
     {
       "id": 742125,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "Entity Information",
       "format": "Full CSV",
       "fileName": "EntityInformation-20200504-085129_Entity",
@@ -147,7 +147,7 @@ export let downloadData = [
     },
     {
       "id": 71,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "Federal Hierarchy",
       "format": "CSV",
       "fileName": "FH-140",
@@ -158,7 +158,7 @@ export let downloadData = [
     },
     {
       "id": 74,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "Federal Hierarchy",
       "format": "PDF",
       "fileName": "FH-050809",
@@ -169,7 +169,7 @@ export let downloadData = [
     },
     {
       "id": 72,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "Federal Hierarchy",
       "format": "PDF",
       "fileName": "FH-050809",
@@ -191,7 +191,7 @@ export let downloadData = [
     },
     {
       "id": 747,
-      "userId": "bhargav.boppana@gsa.gov",
+      "userId":  "testing@gsa.gov",
       "domain": "CFDA",
       "format": "Full CSV",
       "fileName": "CFDA220",

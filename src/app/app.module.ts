@@ -13,12 +13,10 @@ import { SamHeaderModule } from './common/sam-header/sam-header.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SdsDownloadComponent } from './sds-download/sds-download.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SdsDownloadComponent
+    AppComponent
   ],
   imports: [
     BrowserAnimationsModule,
