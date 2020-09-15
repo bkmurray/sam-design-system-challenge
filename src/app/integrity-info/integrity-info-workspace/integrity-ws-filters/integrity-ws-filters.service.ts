@@ -72,86 +72,166 @@ export class IntegrityWsFiltersService {
   public filters: FormlyFieldConfig[] = [
     {
       key: 'keyword',
-      type: 'input',
-      templateOptions: {
-        label: 'Keyword',
-        group: 'panel',
-        className: 'sds-accordion__title'
-      },
+      wrappers: ['accordionwrapper'],
+      templateOptions: { label: 'Search by Keyword' },
+      fieldGroup: [{
+        key: 'keyword',
+        id: 'key',
+        type: 'input',
+        templateOptions: {
+          label: 'Keyword',
+          placeholder: '',
+          inputType: 'text'
+        }
+      }],
     },
     {
-      key: 'awardee',
-      templateOptions: { label: 'Awardee', group: 'accordion' },
+      key: 'searchEntity',
+      wrappers: ['accordionwrapper'],
+      templateOptions: { label: 'Entity' },
       fieldGroup: [
         {
-          key: 'name',
-          type: 'autocomplete',
+          key: 'ueiDUNS',
+          id: 'duns',
+          type: 'input',
           templateOptions: {
-            label: 'Awardee Name',
-            hideOptional: true,
-            service: this.awardeeNameService,
-            configuration: this.awardeeNameSettings,
-            model: this.awardeeNameService.model,
-          },
-        },
-        {
-          key: 'ueiduns',
-          type: 'autocomplete',
-          templateOptions: {
+            tagText: 'DUNS',
+            tagClass: 'sds-tag--info-purple',
             label: 'Unique Entity ID',
-            hideOptional: true,
-            service: this.awardeeUeidunsService,
-            configuration: this.ueiDunsSettings,
-            model: this.awardeeUeidunsService.model,
-          },
+            placeholder: '',
+            inputType: 'text',
+            inputStyle: 'error'
+          }
         },
         {
-          key: 'cage',
-          type: 'autocomplete',
+          key: 'uei',
+          type: 'input',
           templateOptions: {
-            label: 'CAGE / NCAGE',
-            hideOptional: true,
-            service: this.awardeeCageService,
-            configuration: this.cageSettings,
-            model: this.awardeeCageService.model,
-          },
+            tagText: 'SAM',
+            label: 'Unique Entity ID',
+            placeholder: '',
+            inputType: 'text',
+            inputStyle: 'error',
+          }
         },
+        {
+          key: 'cageCode',
+          type: 'input',
+          templateOptions: {
+            label: 'CAGE/NCAGE',
+            placeholder: '',
+            inputType: 'text'
+          }
+        },
+        {
+          key: 'legalBusinessName',
+          type: 'input',
+          templateOptions: {
+            label: 'Legal Business Name',
+            placeholder: '',
+            inputType: 'text'
+          }
+        }
       ],
     },
     {
-      key: 'recordType',
-      type: 'autocomplete',
-      templateOptions: {
-        label: 'Record Type',
-        hideOptional: true,
-        service: this.recordTypeFilter,
-        configuration: this.recordTypeSettings,
-        model: this.recordTypeFilter.model,
-        group: 'accordion',
-      },
+      key: 'status',
+      wrappers: ['accordionwrapper'],
+      templateOptions: { label: 'Status' },
+      fieldGroup: [
+        {
+          key: 'statusCode',
+          id: 'status',
+          type: 'multicheckbox',
+          templateOptions: {
+            label: 'Status',
+            labelClass: 'usa-sr-only',
+            options: [
+              {
+                key: '4',
+                value: 'Active'
+              },
+              {
+                key: '1',
+                value: 'Draft'
+              },
+              {
+                key: '3',
+                value: 'Submitted'
+              },
+              {
+                key: '5',
+                value: 'Expired'
+              },
+              {
+                key: '2',
+                value: 'Work in Progress'
+              }
+            ],
+          }
+        }
+      ],
     },
     {
-      key: 'terminationType',
-      type: 'multicheckbox',
-      templateOptions: {
-        label: 'Termination Type',
-            hideOptional: true,
-        group: 'accordion',
-        options: [
-          {
-            label: 'Complete',
-            value: 'Complete',
-          },
-          {
-            label: 'Partial',
-            value: 'Partial',
-          },
-          {
-            label: 'N/A',
-            value: 'NA',
-          },
-        ],
-      },
+      key: 'expirationDate',
+      wrappers: ['accordionwrapper'],
+      templateOptions: { label: 'Expiration Date' },
+      fieldGroup: [
+        {
+          key: 'expirationDays',
+          id: 'exp',
+          type: 'radio',
+          templateOptions: {
+            label: 'Expiration Date',
+            labelClass: 'usa-sr-only',
+            options: [
+              { label: '30 Days', value: '30' },
+              { label: '60 Days', value: '60' },
+              { label: '90 Days', value: '90' }
+            ]
+          }
+        }
+      ],
+    },
+    {
+      key: 'addressUpdate',
+      wrappers: ['accordionwrapper'],
+      templateOptions: { label: 'Address Update' },
+      fieldGroup: [
+        {
+          key: 'addressUpdateFlag',
+          id: 'addr',
+          type: 'radio',
+          templateOptions: {
+            label: 'Address Update',
+            labelClass: 'usa-sr-only',
+            options: [
+              { label: 'Update Required', value: 'Y' },
+              { label: 'Update Not Required', value: 'N' }
+            ]
+          }
+        }
+      ],
+    },
+    {
+      key: 'samReg',
+      wrappers: ['accordionwrapper'],
+      templateOptions: { label: 'SAM Registration' },
+      fieldGroup: [
+        {
+          key: 'samReg',
+          id: 'sam',
+          type: 'multicheckbox',
+          templateOptions: {
+            label: 'SAM Registration',
+            labelClass: 'usa-sr-only',
+            options: [
+              { key: 'reg', value: 'Registered' },
+              { key: 'id', value: 'ID Only' }
+            ]
+          }          
+        }
+      ],
     }
   ];
 }
