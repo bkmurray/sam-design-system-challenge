@@ -1,45 +1,182 @@
+<!-- Item Heading -->
+<div class="grid-row grid-gap">
+    <div class="grid-col">
+      <h3 class="font-sans-xs margin-y-0">
+        <!-- title -->
+        <a class="usa-link" href="#">
+          {{model?.awardeeName}}
+        </a>
+        <!-- Entity -->
+        <div class="action-menu float-right">
+          <sds-actions-menu 
+            size="sm" [model]="menu" (clicks)="menuClicked($event)">
+          </sds-actions-menu>
+        </div>
+      </h3>
+    </div>
+  </div>
+  <!-- Item Data -->
+  <div class="grid-row grid-gap">
+    <!-- 1st column -->
+    <div class="grid-col-12 tablet:grid-col-4">
+      <!-- DUNS -->
+      <div class="grid-row margin-y-1">
+        <!-- Tag -->
+        <div class="grid-col-auto">
+          <div class="usa-tag sds-tag--info-purple sds-static--tag">DUNS</div>
+        </div>
+        <!-- Key/Value Wrapper -->
+        <div class="grid-col">
+          <div class="sds-field ">
+            <div class="sds-field__name">Unique Entity ID:</div>
+            <div class="sds-field__value">{{model?.DUNS}}</div>
+          </div>
+        </div>
+      </div>
+      <!-- SAM -->
+      <div class="grid-row margin-y-1">
+        <!-- Tag -->
+        <div class="grid-col-auto">
+          <div class="usa-tag sds-tag--info-white sds-static--tag">SAM</div>
+        </div>
+        <!-- Key/Value Wrapper -->
+        <div class="grid-col">
+          <div class="sds-field ">
+            <div class="sds-field__name">Unique Entity ID:</div>
+            <div class="sds-field__value">{{model?.uei}}</div>
+          </div>
+        </div>
+      </div>
+      <!-- CAGE -->
+      <div class="grid-row margin-y-1">
+        <!-- Tag -->
+        <div class="grid-col-auto">
+          <div class="grid-row margin-y-1">
+            <div class="grid-col-auto">
+              <div class="sds-static--tag display-none"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Key/Value Wrapper -->
+        <div class="grid-col">
+          <div class="sds-field ">
+            <div class="sds-field__name">CAGE/NCAGE:</div>
+            <div class="sds-field__value">{{model?.CAGE}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="grid-row grid-gap">
-	<div class="tablet-lg:grid-col-fill">
-		<h2  class="sds-card--subtitle"><a class="usa-link">{{model.awardeeName}}</a></h2>
-	</div>
-	<div class="tablet-lg:grid-col-auto">
-		<div class="grid-row grid-gap">
-			<div class="mobile:grid-auto">
-		        <span class="sds-type--label-title">Record Date</span>
-		        <span class="sds-tag sds-tag--outline flex-justify-center">{{model.recordDate | date }}</span>
-		    </div>
-			<div class="mobile:grid-auto">
-				<sds-actions-menu [model]="menu" (clicks)="menuClicked($event)"></sds-actions-menu>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="grid-row grid-gap">
-	<div class="tablet:grid-col sds-field sds-field--stacked">
-        <div class="sds-field__name">Unique Entity ID</div>
-        <div class="sds-field__value">{{model.DUNS}}</div>
+    <!-- 2nd column -->
+    <div class="grid-col-12 tablet:grid-col-4">
+      <!-- Field Width -->
+      <div class="grid-row margin-y-1">
+        <div class="sds-field sds-field--stacked ">
+          <div class="sds-field__name">Purpose of Registration:</div>
+          <div class="sds-field__value">{{model?.por}}</div>
+        </div>
+      </div>
+      <div class="grid-row margin-y-1" *ngIf="model?.addressUpdateFlag !=='Y'">
+        <div class="sds-field sds-field--stacked ">
+          <div class="sds-field__name">Address:</div>
+          <div class="sds-field__value">
+            <div>{{model?.address?.address1}}<span *ngIf="model?.address?.address1 && model?.address?.address2">, </span> {{model?.address?.address2}}</div>
+            <div>{{model?.address?.city}}, {{model?.address?.stateCd}} {{model?.address?.zipCode}} {{model?.address?.countryCd}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-row margin-y-1" *ngIf="model?.addressUpdateFlag === 'Y'">
+        <div class="sds-alert--block margin-right-1 padding-05">
+          <div class="sds-alert--block-icon grid-col-auto">
+            <fa-icon [icon]="['sds', 'exclamation']" size="3x"></fa-icon>
+          </div>
+          <div class="sds-field sds-field--stacked ">
+            <div class="sds-field__name">Physical Address Update Available</div>
+            <div class="sds-field__value">
+              <div>{{model?.address?.address1}}{{model?.address?.address1 && model?.address?.address2 ? ', ' : ''}}{{model?.address?.address2}}</div>
+              <div>{{model?.address?.city}}, {{model?.address?.stateCd}} {{model?.address?.zipCode}} {{model?.address?.countryCd}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="tablet:grid-col sds-field sds-field--stacked">
-        <div class="sds-field__name">Subtier</div>
-        <div class="sds-field__value">{{model.agency}} ({{model.agencyCode}})</div>
+    <!-- 3rd column -->
+    <div class="grid-col-12 tablet:grid-col-4">
+      <!-- Horizontal Config -->
+      <div class="grid-row grid-gap-05">
+        <!-- Key/Value Wrapper -->
+        <div class="grid-col-4 tablet:grid-col-6">
+          <div class="sds-field sds-field--stacked  sds-field--featured">
+            <div class="sds-field__name">Status</div>
+            <div class="sds-field__value">
+              <span class="sds-tag sds-tag--outline">
+                <em class="sds-status sds-status--sm" 
+                  [class.sds-status--green]="model?.status == 'Active'"
+                  [class.sds-status--red]="model?.status == 'Expired'"
+                  [class.sds-status--light-blue]="model?.status == 'Draft'"
+                  [class.sds-status--yellow]="model?.status == 'Work In Progress'"
+                  [class.sds-status--blue]="model?.status == 'Submitted'"></em>{{model?.status}}</span>
+            </div>
+          </div>
+        </div>
+        <!-- Key/Value Wrapper -->
+        <div class="grid-col-4 tablet:grid-col-6">
+          <div class="sds-field sds-field--stacked  sds-field--featured">
+            <div class="sds-field__name">Expiration Date</div>
+            <div class="sds-field__value">
+              <span class="sds-tag sds-tag--outline flex-justify-center">{{model?.expirationDate | date}}</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-row grid-gap-05 margin-top-1">
+        <div class="grid-col-auto">
+          <span *ngIf="model?.tinMatchFlag == 'Y'" class="sds-tag sds-tag--chip sds-tag--small text-base-darker"
+            title="TIN">
+            TIN
+            <span class="text-primary-dark">
+              <fa-icon [icon]="['fas', 'check']" size="sm"></fa-icon>
+            </span>
+          </span>
+          <span *ngIf="model?.tinMatchFlag == 'N' || !model?.tinMatchFlag"
+            class="sds-tag sds-tag--chip sds-tag--small sds-tag--light" title="TIN">
+            TIN
+            <span class="sds-text-disabled">
+              <fa-icon [icon]="['fas', 'ellipsis-h']" size="sm"></fa-icon>
+            </span>
+          </span>
+        </div>
+        <div class="grid-col-auto">
+          <span *ngIf="model?.cageMatchFlag == 'Y'" class="sds-tag sds-tag--chip sds-tag--small text-base-darker"
+            title="CAGE Code">
+            CAGE
+            <span class="text-primary-dark">
+              <fa-icon [icon]="['fas', 'check']" size="sm"></fa-icon>
+            </span>
+          </span>
+          <span *ngIf="model?.cageMatchFlag == 'N' || !model?.cageMatchFlag"
+            class="sds-tag sds-tag--chip sds-tag--small sds-tag--light" title="CAGE Code">
+            CAGE
+            <span class="sds-text-disabled">
+              <fa-icon [icon]="['fas', 'ellipsis-h']" size="sm"></fa-icon>
+            </span>
+          </span>
+        </div>
+        <div class="grid-col-auto">
+          <span *ngIf="model?.notaryFlag == 'Y'" class="sds-tag sds-tag--chip sds-tag--small text-base-darker"
+            title="Notarized Letter">
+            Notarized Letter
+            <span class="text-primary-dark">
+              <fa-icon [icon]="['fas', 'check']" size="sm"></fa-icon>
+            </span>
+          </span>
+          <span *ngIf="model?.notaryFlag == 'N' || !model?.notaryFlag"
+            class="sds-tag sds-tag--chip sds-tag--small sds-tag--light" title="Notarized Letter">
+            Notarized Letter
+            <span class="sds-text-disabled">
+              <fa-icon [icon]="['fas', 'question']" size="sm"></fa-icon>
+            </span>
+          </span>
+        </div>
+      </div>
     </div>
-    <div class="tablet:grid-col sds-field sds-field--stacked">
-        <div class="sds-field__name">Record Type</div>
-        <div class="sds-field__value">{{model.recordType}}</div>
-    </div>
-</div>
-<div class="grid-row grid-gap">
-	<div class="tablet:grid-col sds-field sds-field--stacked">
-        <div class="sds-field__name">CAGE / NCAGE</div>
-        <div class="sds-field__value">{{model.CAGE}}</div>
-    </div>
-    <div class="tablet:grid-col sds-field sds-field--stacked">
-        <div class="sds-field__name">Contract / Grant Number</div>
-        <div class="sds-field__value">{{model.awardNumber}}</div>
-    </div>
-    <div class="tablet:grid-col sds-field sds-field--stacked">
-        <div class="sds-field__name">Termination Type</div>
-        <div class="sds-field__value">{{model.terminationType}}</div>
-    </div>
-</div>
+  </div>
