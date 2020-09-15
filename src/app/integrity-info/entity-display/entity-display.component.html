@@ -1,649 +1,616 @@
-<div class="entity-display" *ngIf="coreData">
-	<entity-actions [recordId]="recordId" [entityName]="summaryData?.entityName" [status]="summaryData?.status"
-		[selectedEntityVersion]="selectedEntityVersion"></entity-actions>
-	<div class="usa-grid">
-		<!--SideNav-->
-		<div class="usa-width-one-third sam-sidenav">
-			<!--Side Navigation-->
-			<sam-sidenav class="m_T-3x" *ngIf="sidenavModel" (selection)="selectedItem($event)"
-				[labelLookup]="sideNavSelection" [model]="sidenavModel" (pathChange)="sidenavPathEvtHandler($event)">
-			</sam-sidenav>
-			<sam-feedback-button></sam-feedback-button>
-		</div>
-
-		<!-- Main Content -->
-		<div id="primary-content" class="usa-width-two-thirds basic-card--content">
-			<entitySummary [summaryData]="summaryData" [entityHistoricalRecords]="entityHistoricalRecords"
-				(selectedVersionEvent)="receiveSelectedVersion($event)"></entitySummary>
-			<div class="usa-grid padding-0">
-				<hr class="hr-15">
-				<h2 class="basic-card--content-title" id="business-information" tabindex="-1">BUSINESS INFORMATION</h2>
-				<div class="usa-grid padding-0">
-					<div class="usa-width-one-half">
-						<div>
-							<label class="basic-card--label">Doing Business As</label>
-							<span class="basic-card--data">{{businessInformation?.doingBusinessAs}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">URL</label>
-							<span class="basic-card--data">
-								<div *ngIf="businessInformation?.url != '(blank)'">
-									<a *ngIf="url" target="_blank"
-										title="{{businessInformation?.url}} (opens new window)"
-										href="{{url}}">{{businessInformation?.url}}</a>
-								</div>
-								<div *ngIf="businessInformation?.url == '(blank)'">
-									{{businessInformation?.url}}
-								</div>
-							</span>
-						</div>
-						<div
-							*ngIf="summaryData.purposeOfRegistration != 'IGT-Only' && summaryData.purposeOfRegistration != 'Intragovernmental Transactions Only' && summaryData.purposeOfRegistration != 'Intragovernmental Transactions'">
-							<label class="basic-card--label">State / Country of Incorporation</label>
-							<div
-								*ngIf="businessInformation?.stateOfIncorporation == '(blank)' && businessInformation?.countryOfIncorporation == '(blank)'">
-								<span class="basic-card--data">(blank)</span>
-							</div>
-							<div
-								*ngIf="businessInformation?.stateOfIncorporation != '(blank)' && businessInformation?.countryOfIncorporation != '(blank)'">
-								<span class="basic-card--data">{{businessInformation?.stateOfIncorporation}}<div
-										*ngIf="businessInformation?.countryOfIncorporation && businessInformation?.stateOfIncorporation"
-										class="inline">, </div>{{businessInformation?.countryOfIncorporation}}</span>
-							</div>
-							<div
-								*ngIf="businessInformation?.stateOfIncorporation != '(blank)' && businessInformation?.countryOfIncorporation == '(blank)'">
-								<span class="basic-card--data">{{businessInformation?.stateOfIncorporation}}</span>
-							</div>
-							<div
-								*ngIf="businessInformation?.stateOfIncorporation == '(blank)' && businessInformation?.countryOfIncorporation != '(blank)'">
-								<span class="basic-card--data">{{businessInformation?.countryOfIncorporation}}</span>
-							</div>
-						</div>
-					</div>
-					<div class="usa-width-one-half">
-						<div
-							*ngIf="summaryData.purposeOfRegistration != 'IGT-Only' && summaryData.purposeOfRegistration != 'Intragovernmental Transactions Only' && summaryData.purposeOfRegistration != 'Intragovernmental Transactions'">
-							<label class="basic-card--label">Division Name</label>
-							<span class="basic-card--data">{{businessInformation?.divisionName}}</span>
-						</div>
-						<div
-							*ngIf="summaryData.purposeOfRegistration != 'IGT-Only' && summaryData.purposeOfRegistration != 'Intragovernmental Transactions Only' && summaryData.purposeOfRegistration != 'Intragovernmental Transactions'">
-							<label class="basic-card--label">Division Number</label>
-							<span class="basic-card--data">{{businessInformation?.divisionNumber}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Congressional District</label>
-							<span class="basic-card--data">{{businessInformation?.congressionalDistrict}}</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr class="margin-top-4">
-			<h3>Registration Dates</h3>
-			<div class="usa-grid padding-0">
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">Activation Date</label>
-						<span class="basic-card--data">{{businessInformation?.registrationDates?.activationDate}}</span>
-					</div>
-					<div>
-						<label class="basic-card--label">Submission Date</label>
-						<span class="basic-card--data">{{businessInformation?.registrationDates?.submissionDate}}</span>
-					</div>
-				</div>
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">Initial Registration Date</label>
-						<span
-							class="basic-card--data">{{businessInformation?.registrationDates?.initialRegistrationDate}}</span>
-					</div>
-				</div>
-			</div>
-			<hr class="margin-top-4">
-			<h3>Entity Dates</h3>
-			<div class="usa-grid padding-0">
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">Entity Start Date</label>
-						<span class="basic-card--data">{{businessInformation?.entityDates?.entityStartDate}}</span>
-					</div>
-				</div>
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">Fiscal Year End Close Date</label>
-						<span
-							class="basic-card--data">{{businessInformation?.entityDates?.fiscalYearEndCloseDate}}</span>
-					</div>
-				</div>
-			</div>
-			<hr class="margin-top-4">
-			<h3>Immediate Owner</h3>
-			<div class="usa-grid padding-0">
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">CAGE</label>
-						<span class="basic-card--data">{{businessInformation?.immediateOwner?.cageCode}}</span>
-					</div>
-				</div>
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">Legal Business Name</label>
-						<span class="basic-card--data">{{businessInformation?.immediateOwner?.legalBusinessName}}</span>
-					</div>
-				</div>
-			</div>
-			<hr class="margin-top-4">
-			<h3>Highest Level Owner</h3>
-			<div class="usa-grid padding-0">
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">CAGE</label>
-						<span class="basic-card--data">{{businessInformation?.highestLevelOwner?.cageCode}}</span>
-					</div>
-				</div>
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">Legal Business Name</label>
-						<span
-							class="basic-card--data">{{businessInformation?.highestLevelOwner?.legalBusinessName}}</span>
-					</div>
-				</div>
-			</div>
-			<div *ngIf="summaryData.publicDisplayFlag == 'N' || summaryData.sensitivity == 'FOUO' || summaryData.sensitivity == 'SENSITIVE' ||
-			summaryData.sensitivity == 'FSD' || summaryData.sensitivity == 'NonFedAdmin' || summaryData.sensitivity == 'FOUOExeDataViewer' ||
-			 summaryData.sensitivity == 'FOUO and FAPIIS'">
-				<hr class="margin-top-4">
-				<h3>Executive Compensation</h3>
-			</div>
-			<div class="usa-grid padding-0">
-				<div class="usa-width-one-whole"
-					*ngIf="summaryData.sensitivity == 'FOUO' || summaryData.sensitivity == 'SENSITIVE' || summaryData.sensitivity == 'FOUO and FAPIIS'">
-					<p class="basic-card--data">Registrants in the System for Award Management (SAM) respond to the
-						Executive Compensation questions in accordance with Section 6202 of
-						P.L. 110-252, amending the Federal Funding Accountability and
-						Transparency Act (P.L. 109-282). This information is not displayed in SAM.
-						It is sent to USAspending.gov for display in association with an eligible
-						award. Maintaining an active registration in SAM demonstrates the
-						registrant responded to the questions.<p>
-				</div>
-				<div class="usa-width-one-whole"
-					*ngIf="summaryData.sensitivity == 'FSD' || summaryData.sensitivity == 'NonFedAdmin' || summaryData.sensitivity == 'FOUOExeDataViewer'">
-					<p>In your business or organization's preceding completed fiscal year, did your business or
-						organization
-						(the legal entity to which this specific SAM record, represented by a DUNS number, belongs)
-						receive both of the
-						following: 1. 80 percent or more of your annual gross revenues in U.S. federal contracts,
-						subcontracts, loans,
-						grants, subgrants, and/or cooperative agreements and 2. $25,000,000 or more in annual gross
-						revenues from U.S.
-						federal contracts, subcontracts, loans, grants, subgrants, and/or cooperative agreements?</p>
-					<b>{{executiveCompensationQuestions?.executiveCompensationQualifyingResponse1}}</b>
-					<p>Does the public have access to information about the compensation of the senior executives in
-						your business or
-						organization (the legal entity to which this specific SAM record, represented by a DUNS number,
-						belongs) through
-						periodic reports filed under section 13(a) or 15(d) of the Securities Exchange Act of 1934 (15
-						U.S.C. 78m(a),
-						78o(d)) or section 6104 of the Internal Revenue Code of 1986?</p>
-						<b>{{executiveCompensationQuestions?.executiveCompensationQualifyingResponse2}}</b>
-				</div>
-			</div>
-			<div *ngIf="executiveCompensationDetails && summaryData.sensitivity == 'FSD' || 
-			summaryData.sensitivity == 'NonFedAdmin' || summaryData.sensitivity == 'FOUOExeDataViewer'">
-				<hr class="margin-top-4">
-				<h3>Executive Compensation Details</h3>
-				<div class="usa-grid padding-0" *ngIf="executiveCompensationDetails">
-					<div class="usa-width-one-whole" *ngFor=" let executiveItems of executiveCompensationDetails">
-						<h5>Executive {{executiveItems.executiveOrder}}: </h5>
-						<div class="ExecutiveInfo">
-							<div class="ExecutiveDetails">First Name:</div>
-							<div class="ExecutiveDetails basic-card--data">{{executiveItems.firstName}}</div>
-						</div>
-						<div class="ExecutiveInfo">
-							<div class="ExecutiveDetails">Middle Inital:</div>
-							<div class="ExecutiveDetails basic-card--data">{{executiveItems.middleInitial}}</div>
-						</div>
-						<div class="ExecutiveInfo">
-							<div class="ExecutiveDetails">Last Name:</div>
-							<div class="ExecutiveDetails basic-card--data">{{executiveItems.lastName}}</div>
-						</div>
-						<div class="ExecutiveInfo">
-							<div class="ExecutiveDetails">Position Title:</div>
-							<div class="ExecutiveDetails basic-card--data">{{executiveItems.positionTitle}}</div>
-						</div>
-						<div class="ExecutiveInfo">
-							<div class="ExecutiveDetails">Compensation Amount:</div>
-							<div class="ExecutiveDetails basic-card--data">{{executiveItems.compensationAmount}}</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div *ngIf="summaryData.publicDisplayFlag == 'N' || summaryData.sensitivity == 'FOUO and FAPIIS' 
-			|| summaryData.sensitivity == 'FSD' || summaryData.sensitivity == 'NonFedAdmin' || summaryData.sensitivity == 'FOUO' 
-			|| summaryData.sensitivity == 'SENSITIVE' || summaryData.sensitivity == 'FOUOExeDataViewer'">
-				<hr class="margin-top-4">
-				<h3>Proceedings Questions</h3>
-			</div>
-			<div class="usa-grid padding-0">
-				<div class="usa-width-one-whole"
-					*ngIf="summaryData.sensitivity == 'FOUO' || summaryData.sensitivity == 'SENSITIVE' || summaryData.sensitivity == 'FOUOExeDataViewer' ">
-					<p class="basic-card--data">Registrants in the System for Award Management (SAM) respond to
-						proceedings questions in accordance
-						with FAR 52.209-7, FAR 52.209-9, or 2.C.F.R. 200 Appendix XII. Their responses are not displayed
-						in SAM.
-						They are sent to FAPIIS.gov for display as applicable. Maintaining an active registration in SAM
-						demonstrates the registrant responded to the proceedings questions.
-					</p>
-				</div>
-			</div>
-			<div class="usa-grid padding-0">
-				<div class="usa-width-one-whole"
-					*ngIf="summaryData.sensitivity == 'FSD' || summaryData.sensitivity == 'NonFedAdmin' || summaryData.sensitivity == 'FOUO and FAPIIS'">
-					<p>Is your business or organization, as represented by the DUNS Number on this entity registration,
-						responding to a Federal procurement opportunity that contains the provision at FAR 52.209-7,
-						subject to
-						the clause in FAR 52.209-9 in a current Federal contract, or applying for a Federal grant
-						opportunity which
-						contains the award term and condition described in 2 C.F.R. 200 Appendix XII?</p>
-						<b>{{proceedingsQuestions?.proceedingsQualifyingResponse1}}</b>
-					<br>
-					<p>Does your business or organization, as represented by the DUNS number on this specific SAM
-						record,
-						have current active Federal contracts and/or grants with total value (including any
-						exercised/unexercised
-						options) greater than $10,000,000?</p>
-						<b>{{proceedingsQuestions?.proceedingsQualifyingResponse2}}</b>
-					<br>
-					<p>Within the last five years, had the business or organization (represented by the DUNS number on
-						this specific
-						SAM record) and/or any of its principals, in connection with the award to or performance by the
-						business or
-						organization of a Federal contract or grant, been the subject of a Federal or State (1) criminal
-						proceeding
-						resulting in a conviction or other acknowledgment of fault; (2) civil proceeding resulting in a
-						finding of fault
-						with a monetary fine, penalty, reimbursement, restitution, and/or damages greater than $5,000,
-						or other
-						acknowledgment of fault; and/or (3) administrative proceeding resulting in a finding of fault
-						with either a
-						monetary fine or penalty greater than $5,000 or reimbursement, restitution, or damages greater
-						than $100,000, or
-						other acknowledgment of fault?</p>
-					   <b>{{proceedingsQuestions.proceedingsQualifyingResponse3}}</b>
-				</div>
-			</div>
-			<div *ngIf="summaryData.sensitivity == 'FSD' || summaryData.sensitivity == 'NonFedAdmin' || summaryData.sensitivity == 'FOUO and FAPIIS'">
-				<hr class="margin-top-4">
-				<h3>Proceedings Details</h3>
-				<div class="usa-grid padding-0">
-					<div class="usa-width-one-whole" *ngFor="let proceedingItems of proceedingsDetails">
-						<h5>{{proceedingItems.instrumentNumber}}
-							-{{proceedingItems.instrument}}- {{proceedingItems.typeOfProceeding}}</h5>
-						<div class="proceedingInfo">
-							<div class="proceedingDetails">Proceedings Date:</div>
-							<div class="proceedingDetails basic-card--data">{{proceedingItems.proceedingsDate}}</div>
-						</div>
-						<div class="proceedingInfo">
-							<div class="proceedingDetails">Instrument Number: </div>
-							<div class="proceedingDetails basic-card--data">{{proceedingItems.instrumentNumber}}</div>
-						</div>
-						<div class="proceedingInfo">
-							<div class="proceedingDetails">Instrument: </div>
-							<div class="proceedingDetails basic-card--data">{{proceedingItems.instrument}}</div>
-						</div>
-						<div class="proceedingInfo">
-							<div class="proceedingDetails">State: </div>
-							<div class="proceedingDetails basic-card--data">{{proceedingItems.state}}</div>
-						</div>
-						<div class="proceedingInfo">
-							<div class="proceedingDetails">Type of Proceeding: </div>
-							<div class="proceedingDetails basic-card--data">{{proceedingItems.typeOfProceeding}}</div>
-						</div>
-						<div class="proceedingInfo">
-							<div class="proceedingDetails">Disposition: </div>
-							<div class="proceedingDetails basic-card--data">{{proceedingItems.disposition}}</div>
-						</div>
-						<div class="proceedingInfo">
-							<div class="proceedingDetails">Description:</div>
-							<div class="proceedingDetails basic-card--data">{{proceedingItems.description}}</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="usa-grid padding-0">
-				<hr class="hr-15">
-				<h2 class="basic-card--content-title" id="search-authorization" tabindex="-1">SAM Search Authorization
-				</h2>
-				<div class="usa-grid padding-0">
-					<div class="usa-width-one-whole">
-						<p>I authorize my entity's non-sensitive information to be displayed in SAM public search
-							results:</p>
-						<div *ngIf="summaryData.publicDisplayFlag=='Y'"><b>Yes</b></div>
-						<div *ngIf="summaryData.publicDisplayFlag == 'N'"><b>No</b></div>
-					</div>
-				</div>
-			</div>
-			<div class="usa-grid padding-0">
-				<hr class="hr-15">
-				<h2 class="basic-card--content-title" id="entity-types" tabindex="-1">ENTITY TYPES</h2>
-			</div>
-			<hr class="margin-top-4">
-			<h3>Business Types</h3>
-			<div class="usa-grid padding-0">
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">Entity Structure</label>
-						<span class="basic-card--data">{{entityTypes?.businessTypes?.entityStructure}}</span>
-					</div>
-					<div>
-						<label class="basic-card--label">Organization Factors</label>
-						<span class="basic-card--data">{{entityTypes?.businessTypes?.organizationFactors}}</span>
-					</div>
-				</div>
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">Entity Type</label>
-						<span class="basic-card--data">{{entityTypes?.businessTypes?.entityType}}</span>
-					</div>
-					<div>
-						<label class="basic-card--label">Profit Structure</label>
-						<span class="basic-card--data">{{entityTypes?.businessTypes?.profitStructure}}</span>
-					</div>
-				</div>
-			</div>
-			<div
-				*ngIf="entityTypes?.socioEconomicTypes?.socioEconomicBusinessTypeList.length || entityTypes?.socioEconomicTypes?.sbaBusinessTypeList[0].sbaBusinessTypeDesc">
-				<hr class="margin-top-4">
-				<h3>Socio-Economic Types</h3>
-				<div class="usa-grid padding-0">
-					<div>
-						<span
-							class="basic-card--data">{{entityTypes?.socioEconomicTypes?.socioEconomicBusinessTypeList}}</span>
-					</div>
-					<div *ngFor="let sbaType of entityTypes?.socioEconomicTypes?.sbaBusinessTypeList">
-						<span *ngIf="sbaType?.sbaBusinessTypeDesc"
-							class="basic-card--data">{{sbaType.sbaBusinessTypeDesc}}<br>
-							<span class="basic-card--label margin-0">Entrance Date:
-								{{sbaType.certificationEntryDate}}</span><br>
-							<span class="basic-card--label margin-0">Exit Date:
-								{{sbaType.certificationExitDate | date: 'MMM dd, yyyy'}}</span>
-						</span>
-					</div>
-				</div>
-				<p class="basic-card--data">
-					Check the registrant's Reps & Certs, if present, under FAR 52.212-3 or FAR 52.219-1 to
-					determine if the entity is an SBA-certified HUBZone small business concern. Additional
-					small business information may be found in the SBA's Dynamic Small Business Search if
-					the entity completed the SBA supplemental pages during registration.
-				</p>
-			</div>
-			<div *ngIf="entityTypes?.governmentType?.governmentTypeList.length">
-				<hr class="margin-top-4">
-				<h3>Government Types</h3>
-				<div class="usa-grid padding-0">
-					<div>
-						<span class="basic-card--data">{{entityTypes?.governmentType?.governmentTypeList}}</span>
-					</div>
-				</div>
-			</div>
-			<div *ngIf="entityTypes?.otherGovEntities?.otherGovEntities.length">
-				<hr class="margin-top-4">
-				<h3>Other Government Entities</h3>
-				<div class="usa-grid padding-0">
-					<div>
-						<span class="basic-card--data">{{entityTypes?.otherGovEntities?.otherGovEntities}}</span>
-					</div>
-				</div>
-			</div>
-			<div *ngIf="entityTypes?.fedRecNativeAmericanEntity?.fedRecNativeAmericanEntityList.length">
-				<hr class="margin-top-4">
-				<h3>Federally Recognized Native American Entity</h3>
-				<div class="usa-grid padding-0">
-					<div>
-						<span
-							class="basic-card--data">{{entityTypes?.fedRecNativeAmericanEntity?.fedRecNativeAmericanEntityList}}</span>
-					</div>
-				</div>
-			</div>
-			<div *ngIf="entityTypes?.otherEntityQualifiers?.otherEntityQualifiersList.length">
-				<hr class="margin-top-4">
-				<h3>Other Entity Qualifiers</h3>
-				<div class="usa-grid padding-0">
-					<div>
-						<span
-							class="basic-card--data">{{entityTypes?.otherEntityQualifiers?.otherEntityQualifiersList}}</span>
-					</div>
-				</div>
-			</div>
-			<div class="usa-grid padding-0">
-				<hr class="hr-15">
-				<h2 class="basic-card--content-title" id="financial-information" tabindex="-1">FINANCIAL INFORMATION
-				</h2>
-			</div>
-			<div class="usa-grid padding-0">
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">Accepts Credit Card Payments</label>
-						<span class="basic-card--data">{{financialInformation?.acceptsCreditCardPayments}}</span>
-					</div>
-					<div
-						*ngIf="summaryData.sensitivity == 'FOUO' || summaryData.sensitivity == 'SENSITIVE' || summaryData.sensitivity == 'FSD'">
-						<div>
-							<label class="basic-card--label">Department Code</label>
-							<span class="basic-card--data">{{financialInformation?.departmentCode}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Agency Location Code</label>
-							<span class="basic-card--data">{{financialInformation?.agencyLocationCode}}</span>
-						</div>
-					</div>
-				</div>
-				<div class="usa-width-one-half">
-					<div>
-						<label class="basic-card--label">Debt Subject To Offset <a tabindex="0" (click)="openDialog()"
-								id="what-is-this-link" role="link">(What is this?)</a></label>
-						<span class="basic-card--data">{{financialInformation?.debtSubjectToOffset}}</span>
-					</div>
-					<div
-						*ngIf="summaryData.sensitivity == 'FOUO' || summaryData.sensitivity == 'SENSITIVE' || summaryData.sensitivity == 'FSD'">
-						<div>
-							<label class="basic-card--label">CAGE Code</label>
-							<span class="basic-card--data">{{financialInformation?.cageCode}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Disbursing Office Symbol</label>
-							<span class="basic-card--data">{{financialInformation?.disbursingOfficeSymbol}}</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div *ngIf="summaryData.sensitivity == 'SENSITIVE' || summaryData.sensitivity == 'FSD' || summaryData.sensitivity == 'NonFedAdmin'">
-				<hr class="margin-top-4">
-				<h3>Electronic Funds Transfer</h3>
-				<div class="usa-grid padding-0">
-					<div class="usa-width-one-half">
-						<div>
-							<label class="basic-card--label">Account Type</label>
-							<span
-								class="basic-card--data">{{financialInformation?.electronicFundsTransfer?.accountType}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Financial Institution</label>
-							<span
-								class="basic-card--data">{{financialInformation?.electronicFundsTransfer?.financialInstitution}}</span>
-						</div>
-					</div>
-					<div class="usa-width-one-half">
-						<div>
-							<label class="basic-card--label">Routing Number</label>
-							<span
-								class="basic-card--data">{{financialInformation?.electronicFundsTransfer?.routingNumber}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Account Number</label>
-							<span
-								class="basic-card--data">{{financialInformation?.electronicFundsTransfer?.accountNumber}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Lockbox Number</label>
-							<span
-								class="basic-card--data">{{financialInformation?.electronicFundsTransfer?.locBoxNumber}}</span>
-						</div>
-					</div>
-				</div>
-				<hr class="margin-top-4">
-				<h3>Automated Clearing House</h3>
-				<div class="usa-grid padding-0">
-					<div class="usa-width-one-half">
-						<div>
-							<label class="basic-card--label">Phone (U.S.)</label>
-							<span
-								class="basic-card--data">{{financialInformation?.automatedClearingHouse?.usPhone}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Phone (non-U.S.)</label>
-							<span
-								class="basic-card--data">{{financialInformation?.automatedClearingHouse?.nonUSPhone}}</span>
-						</div>
-					</div>
-					<div class="usa-width-one-half">
-						<div>
-							<label class="basic-card--label">Email</label>
-							<span
-								class="basic-card--data">{{financialInformation?.automatedClearingHouse?.email}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Fax</label>
-							<span class="basic-card--data">{{financialInformation?.automatedClearingHouse?.fax}}</span>
-						</div>
-					</div>
-				</div>
-				<hr class="margin-top-4">
-				<h3>Remittance Information</h3>
-				<div class="usa-grid padding-0">
-					<div class="usa-width-one-half">
-						<div>
-							<label class="basic-card--label">Merchant ID1</label>
-							<span
-								class="basic-card--data">{{financialInformation?.remittanceInformation?.merchantID1}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Merchant ID2</label>
-							<span
-								class="basic-card--data">{{financialInformation?.remittanceInformation?.merchantID2}}</span>
-						</div>
-					</div>
-					<div class="usa-width-one-half">
-						<div>
-							<label class="basic-card--label">Accounting Station (FSN)</label>
-							<span
-								class="basic-card--data">{{financialInformation?.remittanceInformation?.accountingStation}}</span>
-						</div>
-					</div>
-				</div>
-				<hr class="margin-top-4">
-				<h3>Remittance Address</h3>
-				<div class="usa-grid padding-0">
-					<div class="usa-width-one-half">
-						<span class="basic-card--data">
-							{{financialInformation?.remittanceAddress?.name}}
-							<entityAddress [address]="financialInformation?.remittanceAddress"></entityAddress>
-						</span>
-					</div>
-				</div>
-			</div>
-			<div
-				*ngIf="summaryData.sensitivity == 'FOUO' || summaryData.sensitivity == 'SENSITIVE' 
-				|| summaryData.sensitivity == 'FSD' || summaryData.sensitivity == 'NonFedAdmin' ||
-				 summaryData.sensitivity == 'FOUOExeDataViewer' || summaryData.sensitivity == 'FOUO and FAPIIS'">
-				<div class="usa-grid padding-0">
-					<hr class="hr-15">
-					<h2 class="basic-card--content-title" id="taxpayer-information" tabindex="-1">TAXPAYER INFORMATION
-					</h2>
-				</div>
-				<hr class="margin-top-4">
-				<div class="usa-grid padding-0">
-					<div class="usa-width-one-half">
-						<div>
-							<label class="basic-card--label">EIN</label>
-							<span class="basic-card--data">{{taxpayerInformation?.taxIdentificationNumber}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Taxpayer Name</label>
-							<span class="basic-card--data">{{taxpayerInformation?.taxPayerName}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Name/Title of Individual Executing Consent</label>
-							<span
-								class="basic-card--data">{{taxpayerInformation?.individualExecutingConsentTitle}}</span>
-						</div>
-						<div *ngIf="summaryData.sensitivity == 'SENSITIVE' || summaryData.sensitivity == 'FSD' ">
-							<div>
-								<label class="basic-card--label">Signature</label>
-								<span class="basic-card--data">{{taxpayerInformation?.signature}}</span>
-							</div>
-						</div>
-						<div>
-							<div *ngIf="!hasTaxpayerAddress">
-								<label class="basic-card--label">Address</label>
-								<span class="basic-card--data">(blank)</span>
-							</div>
-							<div *ngIf="hasTaxpayerAddress">
-								<span class="basic-card--data">
-									<label class="basic-card--label">Address</label>
-									<entityAddress [address]="taxpayerInformation?.tinConsentAddress"></entityAddress>
-								</span>
-							</div>
-						</div>
-					</div>
-					<div class="usa-width-one-half">
-						<div>
-							<label class="basic-card--label">Type of Tax</label>
-							<span class="basic-card--data">{{taxpayerInformation?.typeOfTax}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">Tax Year (Most Recent Tax Year)</label>
-							<span class="basic-card--data">{{taxpayerInformation?.mostRecentTaxYear}}</span>
-						</div>
-						<div>
-							<label class="basic-card--label">TIN Consent Date</label>
-							<span class="basic-card--data">{{taxpayerInformation?.tinConsentDate}}</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="usa-grid padding-0">
-				<hr class="hr-15">
-				<h2 class="basic-card--content-title" id="points-of-contact" tabindex="-1">POINTS OF CONTACT</h2>
-			</div>
-			<div *ngFor="let poc of pointsOfContact">
-				<POC [poc]="poc"></POC>
-			</div>
-			<div
-				*ngIf="summaryData.sensitivity == 'FOUO' || summaryData.sensitivity == 'SENSITIVE'|| summaryData.sensitivity == 'FSD'">
-				<div class="usa-grid padding-0">
-					<hr class="hr-15">
-					<h2 class="basic-card--content-title" id="security-information" tabindex="-1">SECURITY INFORMATION
-					</h2>
-				</div>
-				<hr class="margin-top-4">
-				<div class="usa-grid padding-0">
-					<div class="usa-width-one-half">
-						<div>
-							<label class="basic-card--label">Company Security Level</label>
-							<span class="basic-card--data">{{securityInformation?.companySecurityLevel}}</span>
-						</div>
-					</div>
-					<div class="usa-width-one-half">
-						<div>
-							<label class="basic-card--label">Highest Level Employee Security Level</label>
-							<span class="basic-card--data">{{securityInformation?.highestEmployeeSecurityLevel}}</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="margin-top-4">
-</div>
+<div class="entity-display">
+    <div class="usa-grid">
+      <div class="sam link title">
+        <a>Download</a>
+        <a class="margin-left-2"><i class="fa fa-newspaper-o"></i> Follow</a>
+      </div>
+    </div>
+  
+    <!--Sam Sidenav & Basic Card example-->
+    <div class="usa-grid">
+      <div class="usa-width-one-third sam-sidenav">
+  
+        <sam-sidenav [model]="config"></sam-sidenav>
+  
+        <div class="feedback-btn">
+          <div class="feedback-btn--label"><i class="fa fa-comments"></i> What you think matters!</div>
+          <button type="button" class="feedback-btn--shape">Provide Feedback</button>
+        </div>
+      </div>
+  
+      <div class="usa-width-two-thirds">
+        <h1>
+          Essex National Heritage Commission
+        </h1>
+        <div class="sam-alert--info">
+          <p>This entity record is only available FOR OFFICIAL USE ONLY</p>
+        </div>
+        <div class="basic-card">
+          <div class="usa-grid">
+            <div class="usa-width-one-half">
+              <div>
+                <span class="sam-tag--info-purple">DUNS</span>
+                <label class="basic-card--label">Unique Entity ID </label>
+                <span class="basic-card--data">123456789</span>
+              </div>
+              <div class="margin-top-2">
+                <span class="sam-tag--info-white">SAM</span>
+                <label class="basic-card--label">Unique Entity ID</label>
+                <span class="basic-card--data">123456789</span>
+              </div>
+              <div>
+                <label class="basic-card--label">CAGE/NCAGE</label>
+                <span class="basic-card--data">N123F</span>
+              </div>
+              <div>
+                <label class="basic-card--label">DODAAC</label>
+                <span class="basic-card--data">DODHq0938</span>
+              </div>
+            </div>
+            <div class="usa-width-one-half">
+              <div class="sam-tag">
+                <label class="sam-type--label-title">Expiration Date</label>
+                <span class="sam-sds-tag sam-sds-tag--outline--danger flex-justify-center">Feb 20, 2019</span>
+              </div>
+              <div class="sam-tag">
+                <label class="sam-type--label-title">Status</label>
+                <span class="sam-sds-tag sam-sds-tag--outline">
+                  <i class="sam-sds-status sam-sds-status--sm sam-sds-status--green"></i>Active</span>
+  
+              </div>
+              <div class="sam-alert--link">
+                <div class="sam-alert-content">
+                  <a href="">Review Exclusions</a>
+                  <a href="">Review Debt Subject to Offset</a>
+                </div>
+              </div>
+              <div>
+                <label class="basic-card--label">Purpose of Registration</label>
+                <span class="basic-card--data">All Awards</span>
+              </div>
+            </div>
+          </div>
+          <div class="usa-grid">
+            <div class="usa-width-one-half">
+              <label class="basic-card--label">Physical Address</label>
+              <span class="basic-card--data">10 Federal St. Suit 12</span>
+              <span class="basic-card--data">Salem, Massachusetts</span>
+              <span class="basic-card--data">01970-3875, United States</span>
+            </div>
+            <div class="usa-width-one-half">
+              <label class="basic-card--label">Mailing Address</label>
+              <span class="basic-card--data">10 Federal St. Suit 12</span>
+              <span class="basic-card--data">Salem, Massachusetts</span>
+              <span class="basic-card--data">01970-3875, United States</span>
+            </div>
+          </div>
+          <div class="basic-card--note">*The DUNS number is currently the official Unique Entity ID</div>
+        </div>
+      </div>
+    </div>
+  
+    <!--Business Information example-->
+    <div class="usa-grid padding-0">
+      <div class="usa-width-two-thirds basic-card--content">
+        <hr class="hr-15">
+        <h2 class="basic-card--content-title">BUSINESS INFORMATION</h2>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">Doing Business As</label>
+              <span class="basic-card--data">Not Provided</span>
+            </div>
+            <div>
+              <label class="basic-card--label">URL</label>
+              <span class="basic-card--data"><a href="essexheritage.org">essexheritage.org</a></span>
+            </div>
+            <div>
+              <label class="basic-card--label">State / Country of Incorportation</label>
+              <span class="basic-card--data">MA, USA</span>
+            </div>
+          </div>
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">Division Name</label>
+              <span class="basic-card--data">None</span>
+            </div>
+            <div>
+              <label class="basic-card--label">Division Number</label>
+              <span class="basic-card--data">None</span>
+            </div>
+            <div>
+              <label class="basic-card--label">Congressional District</label>
+              <span class="basic-card--data">MASSACHUSETTS</span>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="margin-top-4">
+  
+        <h3>SAM Dates</h3>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">Activation Date</label>
+              <span class="basic-card--data">Dec 11, 2018</span>
+            </div>
+            <div>
+              <label class="basic-card--label">Submission Dates</label>
+              <span class="basic-card--data">Dec 11, 2018</span>
+            </div>
+          </div>
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">Initial Registration Date</label>
+              <span class="basic-card--data">Dec 11, 2018</span>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="margin-top-4">
+  
+        <h3>Entity Dates</h3>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">Entity Start Date</label>
+              <span class="basic-card--data">Dec 12, 2017</span>
+            </div>
+          </div>
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">Fiscal year End Close Date</label>
+              <span class="basic-card--data">Dec 12, 2017</span>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="margin-top-4">
+  
+        <h3>Financial Account Information</h3>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">Accepts Credit Card Payments</label>
+              <span class="basic-card--data">Yes</span>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="margin-top-4">
+  
+        <h3>Immediate Owner</h3>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">CAGE</label>
+              <span class="basic-card--data">Z1234</span>
+            </div>
+          </div>
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">Legal Business Name</label>
+              <span class="basic-card--data">The Heritage Foundation</span>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="margin-top-4">
+  
+        <h3>Highest Level Owner</h3>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">CAGE</label>
+              <span class="basic-card--data">Z1234</span>
+            </div>
+          </div>
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">Legal Business Name</label>
+              <span class="basic-card--data">The Heritage Foundation</span>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="margin-top-4">
+  
+        <h3>Executive Compensation</h3>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-whole">
+            <p class="basic-card--summary">
+              Registrants in the System for Award Management (SAM) respond to the Executive
+              Compensation questions in accordance with Section 6202 of P.L. 110-252, amending
+              the Federal Funding Accountability and Transparency Act (P.L. 109-282). This
+              information is not displayed in SAM. It is sent to USAspending.gov for display in
+              association with an eligible award. Maintaining an active registration in SAM
+              demonstrates the registrant responded to the questions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!--Entity Types example-->
+    <div class="usa-grid padding-0">
+      <div class="usa-width-two-thirds basic-card--content">
+        <hr class="hr-15">
+        <h2 class="basic-card--content-title">ENTITY TYPES</h2>
+        <hr class="margin-top-4">
+        <h3>Business Types</h3>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">Entity Structure</label>
+              <span class="basic-card--data">Corporate Entity (Tax Exempt)</span>
+            </div>
+            <div>
+              <label class="basic-card--label">Organization Factors*</label>
+              <span class="basic-card--data">Non-Profit Organization</span>
+            </div>
+          </div>
+          <div class="usa-width-one-half">
+            <div>
+              <label class="basic-card--label">Entity Type</label>
+              <span class="basic-card--data">Non-Profit Organization</span>
+            </div>
+            <div>
+              <label class="basic-card--label">Profit Structure</label>
+              <span class="basic-card--data">Non-Profit Organization</span>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="margin-top-4">
+  
+        <h3>Socio-Economic Types</h3>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-half">
+            <label class="basic-card--label">Minority Owned Business</label>
+            <span class="basic-card--data">
+              <ul>
+                <li>Black American Owned</li>
+              </ul>
+            </span>
+          </div>
+          <div class="usa-width-one-half">
+            <label class="basic-card--label">Woman Owned Business</label>
+            <span class="basic-card--data">
+              <ul>
+                <li>Woman Owned Small Business</li>
+                <ul>
+                  <li>
+                    <b>Economically Disadvantaged Woman Owned Small Business</b>
+                  </li>
+                </ul>
+              </ul>
+            </span>
+          </div>
+        </div>
+        <div class="usa-grid padding-0 margin-top-2">
+          <div class="usa-width-one-half">
+            <div>
+              <div class="text-semibold">SBA Certified 8(a) Program Participant</div>
+              <span class="basic-card--label margin-left-2">Entrance Date: Jun 5, 2003</span>
+              <span class="basic-card--label margin-left-2">Exit Date: Jun 4, 2024</span>
+            </div>
+          </div>
+          <div class="usa-width-one-half">
+            <div>
+              <span class="basic-card--data margin-0">Department of Transportation</span>
+              <span class="basic-card--data margin-0">Disadvantaged Business</span>
+              <span class="basic-card--data">Enterprise (DOT DBE)</span>
+            </div>
+          </div>
+        </div>
+        <p class="basic-card--summary margin-top-4">
+          Check the registrant's Reps & Certs, if present, under FAR 52.212-3 or FAR 52.219-1 to
+          determine if the entity is an SBA-certified HUBZone small business concern. Additional
+          small business information may be found in the SBA's Dynamic Small Business Search if
+          the entity completed the SBA supplemental pages during registration.
+        </p>
+      </div>
+    </div>
+  
+    <!--Points of Contact example-->
+    <div class="usa-grid padding-0">
+      <div class="usa-width-two-thirds basic-card--content">
+        <hr class="hr-15">
+        <h2 class="basic-card--content-title">POINTS OF CONTACT</h2>
+        <hr class="margin-top-4">
+        <h3>Electronic Business POC</h3>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-half">
+            <div>
+              <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
+              <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
+              <span class="basic-card--data">240 555-1212 Ext: 2930</span>
+            </div>
+          </div>
+          <div class="usa-width-one-half">
+            <div>
+              <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
+              <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
+              <span class="basic-card--data">UNITED STATES</span>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="margin-top-4">
+  
+        <h3>Government Business POC</h3>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-half">
+            <div>
+              <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
+              <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
+              <span class="basic-card--data">240 555-1212 Ext: 2930</span>
+            </div>
+          </div>
+          <div class="usa-width-one-half">
+            <div>
+              <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
+              <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
+              <span class="basic-card--data">UNITED STATES</span>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="margin-top-4">
+  
+        <h3>Government Business Alternate POC</h3>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-half">
+            <div>
+              <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
+              <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
+              <span class="basic-card--data">240 555-1212 Ext: 2930</span>
+            </div>
+          </div>
+          <div class="usa-width-one-half">
+            <div>
+              <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
+              <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
+              <span class="basic-card--data">UNITED STATES</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!--NAICS table example-->
+    <div class="usa-grid padding-0">
+      <div class="usa-width-two-thirds basic-card--content">
+        <hr class="hr-15">
+        <h2 class="basic-card--content-title">Service Contract Reports</h2>
+  
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-whole">
+            <div class="datatable-container">
+                <div class="sam-datatable-title">
+                    <input #filter placeholder="Filter agency or title">
+                </div>
+                <sam-datatable #table samSort [dataSource]="dataSource" class="sam-datatable--light">
+                    <!-- Column Definition: agency -->
+                    <ng-container cdkColumnDef="agency">
+                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                            Agency
+                        </th>
+                        <td sam-cell *cdkCellDef="let row"> {{row.agency}} </td>
+                    </ng-container>
+  
+                    <!-- Column Definition: cfdaNumber -->
+                    <ng-container cdkColumnDef="cfdaNumber">
+                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>CFDA #
+                        </th>
+                        <td sam-cell *cdkCellDef="let row"> {{row.cfdaNumber}} </td>
+                    </ng-container>
+  
+                    <!-- Column Definition: title -->
+                    <ng-container cdkColumnDef="title">
+                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                            Title
+                        </th>
+                        <td sam-cell *cdkCellDef="let row"> {{row.title}} </td>
+                    </ng-container>
+  
+                    <!-- Column Definition: cost -->
+                    <ng-container cdkColumnDef="cost">
+                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                            Cost
+                        </th>
+                        <td sam-cell *cdkCellDef="let row"> {{row.cost}} </td>
+                    </ng-container>
+  
+                    <!-- Column Definition: lastUpdatedDate -->
+                    <ng-container cdkColumnDef="lastUpdatedDate">
+                        <th sam-header-cell *cdkHeaderCellDef>
+                            Last Updated
+                        </th>
+                        <td sam-cell *cdkCellDef="let row"> {{row.lastUpdatedDate}} </td>
+                    </ng-container>
+                    <tr sam-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+                    <tr sam-row *cdkRowDef="let row; columns: displayedColumns;
+                        let first = first; let last = last; let even = even; let odd = odd">
+                    </tr>
+                </sam-datatable>
+  
+                <div
+                    class="example-no-results"
+                    [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'"
+                    style="padding:10px 0;">
+                    No users found matching filter.
+                </div>
+                <div
+                    [style.display]="dataSource.renderedData.length != 0 ? '' : 'none'"
+                    style="text-align:right;">
+                    <sam-pagination
+                        class="datatable-example"
+                        #paginator [currentPage]="curPage"
+                        [totalPages]="totalPages">
+                    </sam-pagination>
+                </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="usa-grid padding-0 margin-top-4">
+          <div class="usa-width-one-whole">
+            <div class="datatable-container">
+                <div class="sam-datatable-title">
+                    <input #filter placeholder="Filter agency or title">
+                    <div class="title">
+                      <span>Showing Subcontractors For</span>
+                      <div>01190198010C0157N0001978C0097</div>
+                    </div>
+                </div>
+                <sam-datatable #table samSort [dataSource]="dataSource" class="sam-datatable--light">
+                    <!-- Column Definition: agency -->
+                    <ng-container cdkColumnDef="agency">
+                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                            Agency
+                        </th>
+                        <td sam-cell *cdkCellDef="let row"> {{row.agency}} </td>
+                    </ng-container>
+  
+                    <!-- Column Definition: cfdaNumber -->
+                    <ng-container cdkColumnDef="cfdaNumber">
+                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>CFDA #
+                        </th>
+                        <td sam-cell *cdkCellDef="let row"> {{row.cfdaNumber}} </td>
+                    </ng-container>
+  
+                    <!-- Column Definition: title -->
+                    <ng-container cdkColumnDef="title">
+                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                            Title
+                        </th>
+                        <td sam-cell *cdkCellDef="let row"> {{row.title}} </td>
+                    </ng-container>
+  
+                    <!-- Column Definition: cost -->
+                    <ng-container cdkColumnDef="cost">
+                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                            Cost
+                        </th>
+                        <td sam-cell *cdkCellDef="let row"> {{row.cost}} </td>
+                    </ng-container>
+  
+                    <!-- Column Definition: lastUpdatedDate -->
+                    <ng-container cdkColumnDef="lastUpdatedDate">
+                        <th sam-header-cell *cdkHeaderCellDef>
+                            Last Updated
+                        </th>
+                        <td sam-cell *cdkCellDef="let row"> {{row.lastUpdatedDate}} </td>
+                    </ng-container>
+  
+                    <tr sam-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+                    <tr sam-row *cdkRowDef="let row; columns: displayedColumns;
+                        let first = first; let last = last; let even = even; let odd = odd">
+                    </tr>
+                </sam-datatable>
+  
+                <div
+                    class="example-no-results"
+                    [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'"
+                    style="padding:10px 0;">
+                    No users found matching filter.
+                </div>
+                <div
+                    [style.display]="dataSource.renderedData.length != 0 ? '' : 'none'"
+                    style="text-align:right;">
+                    <sam-pagination
+                        class="datatable-example"
+                        #paginator [currentPage]="curPage"
+                        [totalPages]="totalPages">
+                    </sam-pagination>
+                </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+    <!--Disaster Response example -->
+    <div class="usa-grid padding-0">
+      <div class="usa-width-two-thirds basic-card--content">
+        <hr class="hr-15">
+        <h2 class="basic-card--content-title">Disaster Response</h2>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-whole">
+            <div class="padding-205">
+              <sam-alert-next type="checked" class="text-base-dark">
+                Yes, this entity appears in disaster response registry
+              </sam-alert-next>
+              <sam-alert-next type="unchecked" class="text-base-dark">
+                <ul>
+                  <li>No, this enitty does not require bonding to bid on contracts</li>
+                </ul>
+              </sam-alert-next>
+            </div>
+            <div class="text-base-dark">
+              <dl>
+                <dt>
+                  States
+                </dt>
+                <dd class="text-semibold margin-0">
+                  District of Columbia, Maryland, Virginia
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  Counties
+                </dt>
+                <dd class="text-semibold margin-0">
+                  MD: Montgomery, Prince Georges, Baltimore
+                </dd>
+                <dd class="text-semibold margin-0">
+                  MD: Montgomery, Prince Georges, Baltimore
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  Metropolitan Statistical Areas
+                </dt>
+                <dd class="text-semibold margin-0">
+                  DC: Washington
+                </dd>
+                <dd class="text-semibold margin-0">
+                  MD: Baltimore
+                </dd>
+                <dd class="text-semibold margin-0">
+                  VA: Alexandria, Falls Church
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!--Proceedings example-->
+    <div class="usa-grid padding-0">
+      <div class="usa-width-two-thirds basic-card--content">
+        <hr class="hr-15">
+        <h2 class="basic-card--content-title">Proceedings</h2>
+        <div class="usa-grid padding-0">
+          <div class="usa-width-one-whole">
+            <p class="basic-card--summary">Registrants in the System for Award Management (SAM) respond to proceedings questions in
+              accordance with FAR 52.209-7, FAR 52.209-9, or 2.C.F.R. 200 Appendix XII. Their responses are
+              not displayed in SAM. They are sent to FAPIIS.gov for display as applicable. Maintaining an
+              active registration in SAM demonstrates the registrant responded to the proceedings questions.</p>
+  
+            <button class="sam button next float-right">Go to FAPIIS.gov</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!--Last Updated example-->
+    <div class="usa-grid padding-0 sam-tag--date">
+      <div class="usa-width-whole float-right margin-top-2">
+        Last updated by Daniel Smith on Jun 12, 2019 at 10:32AM
+      </div>
+    </div>
+  </div>
