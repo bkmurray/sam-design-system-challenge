@@ -17,12 +17,10 @@ export class IntegrityInfoService {
 	  pageSize: 25,
 	  sortList:
 	    [
-	      { text: "Awardee Name (A-Z)", value: "awardeeAscending" },
-	      { text: "Awardee Name (Z-A)", value: "awardeeDescending" },
-	      { text: "Unique Entity ID (Low-High)", value: "ueiAscending" },
-	      { text: "Unique Entity ID (High-Low)", value: "ueiDescending" },
-	      { text: "Record Date (Newest)", value: "dateDescending" },
-	      { text: "Record Date (Oldest)", value: "dateAscending" },
+	      { text: "Expiration Date  Ascending", value: "awardeeAscending" },
+	      { text: "Expiration Date  Descending", value: "awardeeDescending" },
+	      { text: "Name (A-Z)", value: "ueiAscending" },
+	      { text: "Name (Z-A)", value: "ueiDescending" }
 	    ]
 	};
 
