@@ -24,7 +24,9 @@ export class IntegrityInfoWsItemComponent implements OnInit {
   }
 
   menuClicked(action) {
-	console.log(`%cLog: clicked action`, 'color: blue; font-weight: bold');
+	  if(action == 'ViewBtn'){
+      window.location.href = 'entity/display';
+    }
   }
 
 

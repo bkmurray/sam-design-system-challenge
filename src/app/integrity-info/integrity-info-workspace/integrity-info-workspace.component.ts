@@ -28,7 +28,8 @@ export class IntegrityInfoWorkspaceComponent implements OnInit, AfterViewInit {
 
   subheader = {
     actions: [
-      { id: 'downloadAction', icon: 'download', text: 'Download' }
+      { id: 'downloadAction', icon: 'download', text: 'Download' },
+      { id: 'PHRRAction', icon: 'phrr', text: 'Manage PHRR' }
     ]
   };
 

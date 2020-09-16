@@ -11,9 +11,13 @@ const routes: Routes = [
     loadChildren: () => import('./integrity-info/integrity-info-workspace/integrity-info-workspace.module').then(m => m.IntegrityInfoWorkspaceModule)
   },
   {
+    path: 'entity/display',
+    loadChildren: () => import('./integrity-info/entity-display/entity-display.module').then(m => m.EntityDisplayPageModule)
+  },
+  {
   	path: '**',
   	redirectTo: '/workspace/nonFed-workspace', pathMatch: 'full'
-  }
+  },
 ];
 
 @NgModule({

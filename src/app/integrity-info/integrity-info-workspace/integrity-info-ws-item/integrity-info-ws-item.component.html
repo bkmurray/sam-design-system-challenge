@@ -73,15 +73,15 @@
       <div class="grid-row margin-y-1">
         <div class="sds-field sds-field--stacked ">
           <div class="sds-field__name">Purpose of Registration:</div>
-          <div class="sds-field__value">{{model?.por}}</div>
+          <div class="sds-field__value">All Awards</div>
         </div>
       </div>
       <div class="grid-row margin-y-1" *ngIf="model?.addressUpdateFlag !=='Y'">
         <div class="sds-field sds-field--stacked ">
           <div class="sds-field__name">Address:</div>
           <div class="sds-field__value">
-            <div>{{model?.address?.address1}}<span *ngIf="model?.address?.address1 && model?.address?.address2">, </span> {{model?.address?.address2}}</div>
-            <div>{{model?.address?.city}}, {{model?.address?.stateCd}} {{model?.address?.zipCode}} {{model?.address?.countryCd}}</div>
+            <div>1800 F St, NW<span *ngIf="model?.address?.address1 && model?.address?.address2">, </span> {{model?.address?.address2}}</div>
+            <div>Washington, DC 20405 USA</div>
           </div>
         </div>
       </div>
@@ -111,11 +111,7 @@
             <div class="sds-field__value">
               <span class="sds-tag sds-tag--outline">
                 <em class="sds-status sds-status--sm" 
-                  [class.sds-status--green]="model?.status == 'Active'"
-                  [class.sds-status--red]="model?.status == 'Expired'"
-                  [class.sds-status--light-blue]="model?.status == 'Draft'"
-                  [class.sds-status--yellow]="model?.status == 'Work In Progress'"
-                  [class.sds-status--blue]="model?.status == 'Submitted'"></em>{{model?.status}}</span>
+                  [class.sds-status--green]="true"></em>Active</span>
             </div>
           </div>
         </div>
@@ -124,7 +120,7 @@
           <div class="sds-field sds-field--stacked  sds-field--featured">
             <div class="sds-field__name">Expiration Date</div>
             <div class="sds-field__value">
-              <span class="sds-tag sds-tag--outline flex-justify-center">{{model?.expirationDate | date}}</span></div>
+              <span class="sds-tag sds-tag--outline flex-justify-center">Dec 31, 2020</span></div>
           </div>
         </div>
       </div>
