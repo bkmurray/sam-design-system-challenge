@@ -1,398 +1,424 @@
-<div class="entity-display">
-    <div class="usa-grid">
-      <div class="sam link title" style="float:right">
+<!-- <div class="entity-display"> -->
+    <!-- <div class="grid-container"> -->
+      <div style="float:right">
         <button type="button" class="btn btn-outline-primary">Download</button>
         <button type="button" class="btn btn-outline-secondary">Follow</button>
       </div>
-    </div>
-  
+    <!-- </div> -->
+    <div></div>
     <!--Sam Sidenav & Basic Card example-->
-    <div class="grid-row">
-      <div class="grid-col-4">
-  
-        <!-- <sam-sidenav [model]="config"></sam-sidenav> -->
-  
-        <div class="feedback-btn">
-          <div class="feedback-btn--label"><i class="fa fa-comments"></i> What you think matters!</div>
-          <button type="button" class="feedback-btn--shape" style="background-color:blue;">Provide Feedback</button>
-        </div>
-      </div>
-  
-      <div class="grid-col-8">
-        <h1>
-          Essex National Heritage Commission
-        </h1>
-        <div class="sam-alert--info">
-          <p>This entity record is only available FOR OFFICIAL USE ONLY</p>
-        </div>
-        <div class="sds-card">
-          <div class="grid-row">
-            <div class="grid-col-6">
-              <div>
-                <span class="usa-tag sds-tag--info-purple sds-static--tag">DUNS</span>
-                <div class="sds-field">
-                  <div class="sds-field__name">Unique Entity ID </div>
-                  <div class="sds-field__value">123456789</div>
-                </div>
-              </div>
-              <div class="margin-top-2">
-                <span class="usa-tag sds-tag--info-white sds-static--tag">SAM</span>
-                <div class="sds-field">
-                  <div class="sds-field__name">Unique Entity ID</div>
-                  <div class="sds-field__value">123456789</div>
-                </div>
-              </div>
-              <div class="sds-field margin-top-2">
-                <div class="sds-field__name">CAGE/NCAGE</div>
-              </div>
-              <div class="sds-field">
-                <div class="sds-field__value">N123F</div>
-              </div>
-              <div class="sds-field margin-top-2">
-                <div class="sds-field__name">DODAAC</div>
-              </div>
-              <div class="sds-field">
-                <div class="sds-field__value">DODHq0938</div>
-              </div>
-            </div>
-            <div class="grid-col-6">
-              <div class="sds-field sds-field--stacked  sds-field--featured">
-                <div class="sds-field__name">Expiration Date</div>
-                <div class="sds-field__value">
-                  <span class="sds-tag sds-tag--outline flex-justify-center">Feb 20, 2019</span></div>
-              </div>
-              <div class="sds-field sds-field--stacked  sds-field--featured">
-                <div class="sds-field__name">Status</div>
-                <div class="sds-field__value">
-                  <span class="sds-tag sds-tag--outline">
-                    <em class="sds-status sds-status--sm" 
-                      [class.sds-status--green]="true"></em>Active</span>
-                </div>
-              </div>
-              <!-- <div class="sam-alert--link">
-                <div class="sam-alert-content">
-                  <a href="">Review Exclusions</a>
-                  <a href="">Review Debt Subject to Offset</a>
-                </div>
+    <div class = "grid-container margin-top-6">
+      <div class="grid-row">
+        <div class="grid-col-4">
+            <!-- <div class="sidebar">
+                <div class="a active" href="#home">Entity Registration</div>
+                <a href="integrity">Integrity information</a>
               </div> -->
-              <div class="sds-field margin-top-2">
-                  <div class="sds-field__name">Purpose of Registration</div>
+              <table class="table table-sm sidebar" style="border: 1px solid black; width: 80%">
+                <tbody>
+                  <tr>
+                    <td style="border: 1px solid black; height: 40px">Entity Registration</td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid black; height: 40px">Exclusions</td>
+                  </tr>
+                  <tr>
+                        <td style="border: 1px solid black; height: 40px">Integrity Information</td>
+                  </tr>
+                
+                </tbody>
+              </table>
+          <div class="feedback-btn">
+            <div class="feedback-btn--label"><i class="fa fa-comments"></i> What you think matters!</div>
+            <button type="button" class="feedback-btn--shape" style="background-color:blue;">Provide Feedback</button>
+          </div>
+        </div>
+    
+        <div class="grid-col-8">
+          <h1>
+            Essex National Heritage Commission
+          </h1>
+          <div class="sam-alert--info">
+            <p>This entity record is only available FOR OFFICIAL USE ONLY</p>
+          </div>
+          <div class="sds-card" style="border: 2px solid black; background-color: lightgrey;">
+            <div class="grid-row" style="margin: 15px">
+              <div class="grid-col-6">
+                <div>
+                  <span class="usa-tag sds-tag--info-purple sds-static--tag">DUNS</span>
+                  <div class="sds-field">
+                    <div class="sds-field__name">Unique Entity ID </div>
+                    <div class="sds-field__value">123456789</div>
+                  </div>
+                </div>
+                <div class="margin-top-2">
+                  <span class="usa-tag sds-tag--info-white sds-static--tag">SAM</span>
+                  <div class="sds-field">
+                    <div class="sds-field__name">Unique Entity ID</div>
+                    <div class="sds-field__value">123456789</div>
+                  </div>
+                </div>
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">CAGE/NCAGE</div>
                 </div>
                 <div class="sds-field">
-                  <div class="sds-field__value">All Awards</div>
+                  <div class="sds-field__value">N123F</div>
                 </div>
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">DODAAC</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">DODHq0938</div>
+                </div>
+              </div>
+              <div class="grid-col-6">
+                <div class="sds-field sds-field--stacked  sds-field--featured">
+                  <div class="sds-field__name">Expiration Date</div>
+                  <div class="sds-field__value">
+                    <span class="sds-tag sds-tag--outline flex-justify-center">Feb 20, 2019</span></div>
+                </div>
+                <div class="sds-field sds-field--stacked  sds-field--featured">
+                  <div class="sds-field__name">Status</div>
+                  <div class="sds-field__value">
+                    <span class="sds-tag sds-tag--outline">
+                      <em class="sds-status sds-status--sm" 
+                        [class.sds-status--green]="true"></em>Active</span>
+                  </div>
+                </div>
+                <!-- <div class="sam-alert--link">
+                  <div class="sam-alert-content">
+                    <a href="">Review Exclusions</a>
+                    <a href="">Review Debt Subject to Offset</a>
+                  </div>
+                </div> -->
+                <div class="sds-field margin-top-2">
+                    <div class="sds-field__name">Purpose of Registration</div>
+                  </div>
+                  <div class="sds-field">
+                    <div class="sds-field__value">All Awards</div>
+                  </div>
+              </div>
             </div>
-          </div>
-          <div class="grid-row margin-top-2">
-            <div class="grid-col-6">
-              <div class="sds-field sds-field--stacked ">
-                <div class="sds-field__name">Physical Address</div>
-                <div class="sds-field__value">
-                  <div>10 Federal St. Suit 12</div>
-                  <div>Salem, Massachusetts</div>
-                  <div>01970-3875, United States</div>
+            <div class="grid-row margin-top-2" style="margin: 15px">
+              <div class="grid-col-6">
+                <div class="sds-field sds-field--stacked ">
+                  <div class="sds-field__name">Physical Address</div>
+                  <div class="sds-field__value">
+                    <div>10 Federal St. Suit 12</div>
+                    <div>Salem, Massachusetts</div>
+                    <div>01970-3875, United States</div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-col-6">
+                <div class="sds-field sds-field--stacked ">
+                  <div class="sds-field__name">Mailing Address</div>
+                  <div class="sds-field__value">
+                    <div>10 Federal St. Suit 12</div>
+                    <div>Salem, Massachusetts</div>
+                    <div>01970-3875, United States</div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="grid-col-6">
-              <div class="sds-field sds-field--stacked ">
-                <div class="sds-field__name">Mailing Address</div>
-                <div class="sds-field__value">
-                  <div>10 Federal St. Suit 12</div>
-                  <div>Salem, Massachusetts</div>
-                  <div>01970-3875, United States</div>
-                </div>
-              </div>
-            </div>
+            <div class="basic-card--note" style="margin: 15px">*The DUNS number is currently the official Unique Entity ID</div>
           </div>
-          <div class="basic-card--note">*The DUNS number is currently the official Unique Entity ID</div>
         </div>
       </div>
     </div>
   
     <!--Business Information example-->
-    <div class="usa-grid padding-0">
-      <div class="usa-width-two-thirds basic-card--content">
-        <hr class="hr-15">
-        <h2 class="basic-card--content-title">BUSINESS INFORMATION</h2>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">Doing Business As</label>
-              <span class="basic-card--data">Not Provided</span>
+    <div class="grid-container">  
+      <div class="grid-row">   
+        <div class="grid-col-4"></div>
+        <div class="grid-col-8">
+          <hr class="hr-15">
+          <h2 class="basic-card--content-title">BUSINESS INFORMATION</h2>
+          <div class="usa-grid padding-0">
+            <div class="grid-col-6">
+              <div>
+                <label class="basic-card--label">Doing Business As</label>
+                <span class="basic-card--data">Not Provided</span>
+              </div>
+              <div>
+                <label class="basic-card--label">URL</label>
+                <span class="basic-card--data"><a href="essexheritage.org">essexheritage.org</a></span>
+              </div>
+              <div>
+                <label class="basic-card--label">State / Country of Incorportation</label>
+                <span class="basic-card--data">MA, USA</span>
+              </div>
             </div>
-            <div>
-              <label class="basic-card--label">URL</label>
-              <span class="basic-card--data"><a href="essexheritage.org">essexheritage.org</a></span>
-            </div>
-            <div>
-              <label class="basic-card--label">State / Country of Incorportation</label>
-              <span class="basic-card--data">MA, USA</span>
-            </div>
-          </div>
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">Division Name</label>
-              <span class="basic-card--data">None</span>
-            </div>
-            <div>
-              <label class="basic-card--label">Division Number</label>
-              <span class="basic-card--data">None</span>
-            </div>
-            <div>
-              <label class="basic-card--label">Congressional District</label>
-              <span class="basic-card--data">MASSACHUSETTS</span>
-            </div>
-          </div>
-        </div>
-  
-        <hr class="margin-top-4">
-  
-        <h3>SAM Dates</h3>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">Activation Date</label>
-              <span class="basic-card--data">Dec 11, 2018</span>
-            </div>
-            <div>
-              <label class="basic-card--label">Submission Dates</label>
-              <span class="basic-card--data">Dec 11, 2018</span>
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">Division Name</label>
+                <span class="basic-card--data">None</span>
+              </div>
+              <div>
+                <label class="basic-card--label">Division Number</label>
+                <span class="basic-card--data">None</span>
+              </div>
+              <div>
+                <label class="basic-card--label">Congressional District</label>
+                <span class="basic-card--data">MASSACHUSETTS</span>
+              </div>
             </div>
           </div>
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">Initial Registration Date</label>
-              <span class="basic-card--data">Dec 11, 2018</span>
+    
+          <hr class="margin-top-4">
+    
+          <h3>SAM Dates</h3>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">Activation Date</label>
+                <span class="basic-card--data">Dec 11, 2018</span>
+              </div>
+              <div>
+                <label class="basic-card--label">Submission Dates</label>
+                <span class="basic-card--data">Dec 11, 2018</span>
+              </div>
+            </div>
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">Initial Registration Date</label>
+                <span class="basic-card--data">Dec 11, 2018</span>
+              </div>
             </div>
           </div>
-        </div>
-  
-        <hr class="margin-top-4">
-  
-        <h3>Entity Dates</h3>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">Entity Start Date</label>
-              <span class="basic-card--data">Dec 12, 2017</span>
+    
+          <hr class="margin-top-4">
+    
+          <h3>Entity Dates</h3>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">Entity Start Date</label>
+                <span class="basic-card--data">Dec 12, 2017</span>
+              </div>
+            </div>
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">Fiscal year End Close Date</label>
+                <span class="basic-card--data">Dec 12, 2017</span>
+              </div>
             </div>
           </div>
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">Fiscal year End Close Date</label>
-              <span class="basic-card--data">Dec 12, 2017</span>
+    
+          <hr class="margin-top-4">
+    
+          <h3>Financial Account Information</h3>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">Accepts Credit Card Payments</label>
+                <span class="basic-card--data">Yes</span>
+              </div>
             </div>
           </div>
-        </div>
-  
-        <hr class="margin-top-4">
-  
-        <h3>Financial Account Information</h3>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">Accepts Credit Card Payments</label>
-              <span class="basic-card--data">Yes</span>
+    
+          <hr class="margin-top-4">
+    
+          <h3>Immediate Owner</h3>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">CAGE</label>
+                <span class="basic-card--data">Z1234</span>
+              </div>
+            </div>
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">Legal Business Name</label>
+                <span class="basic-card--data">The Heritage Foundation</span>
+              </div>
             </div>
           </div>
-        </div>
-  
-        <hr class="margin-top-4">
-  
-        <h3>Immediate Owner</h3>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">CAGE</label>
-              <span class="basic-card--data">Z1234</span>
+    
+          <hr class="margin-top-4">
+    
+          <h3>Highest Level Owner</h3>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">CAGE</label>
+                <span class="basic-card--data">Z1234</span>
+              </div>
+            </div>
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">Legal Business Name</label>
+                <span class="basic-card--data">The Heritage Foundation</span>
+              </div>
             </div>
           </div>
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">Legal Business Name</label>
-              <span class="basic-card--data">The Heritage Foundation</span>
+    
+          <hr class="margin-top-4">
+    
+          <h3>Executive Compensation</h3>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-whole">
+              <p class="basic-card--summary">
+                Registrants in the System for Award Management (SAM) respond to the Executive
+                Compensation questions in accordance with Section 6202 of P.L. 110-252, amending
+                the Federal Funding Accountability and Transparency Act (P.L. 109-282). This
+                information is not displayed in SAM. It is sent to USAspending.gov for display in
+                association with an eligible award. Maintaining an active registration in SAM
+                demonstrates the registrant responded to the questions.
+              </p>
             </div>
-          </div>
-        </div>
-  
-        <hr class="margin-top-4">
-  
-        <h3>Highest Level Owner</h3>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">CAGE</label>
-              <span class="basic-card--data">Z1234</span>
-            </div>
-          </div>
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">Legal Business Name</label>
-              <span class="basic-card--data">The Heritage Foundation</span>
-            </div>
-          </div>
-        </div>
-  
-        <hr class="margin-top-4">
-  
-        <h3>Executive Compensation</h3>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-whole">
-            <p class="basic-card--summary">
-              Registrants in the System for Award Management (SAM) respond to the Executive
-              Compensation questions in accordance with Section 6202 of P.L. 110-252, amending
-              the Federal Funding Accountability and Transparency Act (P.L. 109-282). This
-              information is not displayed in SAM. It is sent to USAspending.gov for display in
-              association with an eligible award. Maintaining an active registration in SAM
-              demonstrates the registrant responded to the questions.
-            </p>
           </div>
         </div>
       </div>
     </div>
   
     <!--Entity Types example-->
-    <div class="usa-grid padding-0">
-      <div class="usa-width-two-thirds basic-card--content">
-        <hr class="hr-15">
-        <h2 class="basic-card--content-title">ENTITY TYPES</h2>
-        <hr class="margin-top-4">
-        <h3>Business Types</h3>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">Entity Structure</label>
-              <span class="basic-card--data">Corporate Entity (Tax Exempt)</span>
+    <div class="grid-container">
+      <div class="grid-row">
+        <div class="grid-col-4"></div>
+        <div class="grid-col-8">
+          <hr class="hr-15">
+          <h2 class="basic-card--content-title">ENTITY TYPES</h2>
+          <hr class="margin-top-4">
+          <h3>Business Types</h3>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">Entity Structure</label>
+                <span class="basic-card--data">Corporate Entity (Tax Exempt)</span>
+              </div>
+              <div>
+                <label class="basic-card--label">Organization Factors*</label>
+                <span class="basic-card--data">Non-Profit Organization</span>
+              </div>
             </div>
-            <div>
-              <label class="basic-card--label">Organization Factors*</label>
-              <span class="basic-card--data">Non-Profit Organization</span>
+            <div class="usa-width-one-half">
+              <div>
+                <label class="basic-card--label">Entity Type</label>
+                <span class="basic-card--data">Non-Profit Organization</span>
+              </div>
+              <div>
+                <label class="basic-card--label">Profit Structure</label>
+                <span class="basic-card--data">Non-Profit Organization</span>
+              </div>
             </div>
           </div>
-          <div class="usa-width-one-half">
-            <div>
-              <label class="basic-card--label">Entity Type</label>
-              <span class="basic-card--data">Non-Profit Organization</span>
-            </div>
-            <div>
-              <label class="basic-card--label">Profit Structure</label>
-              <span class="basic-card--data">Non-Profit Organization</span>
-            </div>
-          </div>
-        </div>
-  
-        <hr class="margin-top-4">
-  
-        <h3>Socio-Economic Types</h3>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-half">
-            <label class="basic-card--label">Minority Owned Business</label>
-            <span class="basic-card--data">
-              <ul>
-                <li>Black American Owned</li>
-              </ul>
-            </span>
-          </div>
-          <div class="usa-width-one-half">
-            <label class="basic-card--label">Woman Owned Business</label>
-            <span class="basic-card--data">
-              <ul>
-                <li>Woman Owned Small Business</li>
+    
+          <hr class="margin-top-4">
+    
+          <h3>Socio-Economic Types</h3>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-half">
+              <label class="basic-card--label">Minority Owned Business</label>
+              <span class="basic-card--data">
                 <ul>
-                  <li>
-                    <b>Economically Disadvantaged Woman Owned Small Business</b>
-                  </li>
+                  <li>Black American Owned</li>
                 </ul>
-              </ul>
-            </span>
-          </div>
-        </div>
-        <div class="usa-grid padding-0 margin-top-2">
-          <div class="usa-width-one-half">
-            <div>
-              <div class="text-semibold">SBA Certified 8(a) Program Participant</div>
-              <span class="basic-card--label margin-left-2">Entrance Date: Jun 5, 2003</span>
-              <span class="basic-card--label margin-left-2">Exit Date: Jun 4, 2024</span>
+              </span>
+            </div>
+            <div class="usa-width-one-half">
+              <label class="basic-card--label">Woman Owned Business</label>
+              <span class="basic-card--data">
+                <ul>
+                  <li>Woman Owned Small Business</li>
+                  <ul>
+                    <li>
+                      <b>Economically Disadvantaged Woman Owned Small Business</b>
+                    </li>
+                  </ul>
+                </ul>
+              </span>
             </div>
           </div>
-          <div class="usa-width-one-half">
-            <div>
-              <span class="basic-card--data margin-0">Department of Transportation</span>
-              <span class="basic-card--data margin-0">Disadvantaged Business</span>
-              <span class="basic-card--data">Enterprise (DOT DBE)</span>
+          <div class="usa-grid padding-0 margin-top-2">
+            <div class="usa-width-one-half">
+              <div>
+                <div class="text-semibold">SBA Certified 8(a) Program Participant</div>
+                <span class="basic-card--label margin-left-2">Entrance Date: Jun 5, 2003</span>
+                <span class="basic-card--label margin-left-2">Exit Date: Jun 4, 2024</span>
+              </div>
+            </div>
+            <div class="usa-width-one-half">
+              <div>
+                <span class="basic-card--data margin-0">Department of Transportation</span>
+                <span class="basic-card--data margin-0">Disadvantaged Business</span>
+                <span class="basic-card--data">Enterprise (DOT DBE)</span>
+              </div>
             </div>
           </div>
+          <p class="basic-card--summary margin-top-4">
+            Check the registrant's Reps & Certs, if present, under FAR 52.212-3 or FAR 52.219-1 to
+            determine if the entity is an SBA-certified HUBZone small business concern. Additional
+            small business information may be found in the SBA's Dynamic Small Business Search if
+            the entity completed the SBA supplemental pages during registration.
+          </p>
         </div>
-        <p class="basic-card--summary margin-top-4">
-          Check the registrant's Reps & Certs, if present, under FAR 52.212-3 or FAR 52.219-1 to
-          determine if the entity is an SBA-certified HUBZone small business concern. Additional
-          small business information may be found in the SBA's Dynamic Small Business Search if
-          the entity completed the SBA supplemental pages during registration.
-        </p>
       </div>
     </div>
   
     <!--Points of Contact example-->
-    <div class="usa-grid padding-0">
-      <div class="usa-width-two-thirds basic-card--content">
-        <hr class="hr-15">
-        <h2 class="basic-card--content-title">POINTS OF CONTACT</h2>
-        <hr class="margin-top-4">
-        <h3>Electronic Business POC</h3>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-half">
-            <div>
-              <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
-              <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
-              <span class="basic-card--data">240 555-1212 Ext: 2930</span>
+    <div class="grid-container">
+      <div class="grid-row">
+        <div class="grid-col-4"></div>
+        <div class="grid-col-8">
+          <hr class="hr-15">
+          <h2 class="basic-card--content-title">POINTS OF CONTACT</h2>
+          <hr class="margin-top-4">
+          <h3>Electronic Business POC</h3>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-half">
+              <div>
+                <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
+                <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
+                <span class="basic-card--data">240 555-1212 Ext: 2930</span>
+              </div>
+            </div>
+            <div class="usa-width-one-half">
+              <div>
+                <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
+                <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
+                <span class="basic-card--data">UNITED STATES</span>
+              </div>
             </div>
           </div>
-          <div class="usa-width-one-half">
-            <div>
-              <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
-              <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
-              <span class="basic-card--data">UNITED STATES</span>
+    
+          <hr class="margin-top-4">
+    
+          <h3>Government Business POC</h3>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-half">
+              <div>
+                <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
+                <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
+                <span class="basic-card--data">240 555-1212 Ext: 2930</span>
+              </div>
+            </div>
+            <div class="usa-width-one-half">
+              <div>
+                <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
+                <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
+                <span class="basic-card--data">UNITED STATES</span>
+              </div>
             </div>
           </div>
-        </div>
-  
-        <hr class="margin-top-4">
-  
-        <h3>Government Business POC</h3>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-half">
-            <div>
-              <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
-              <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
-              <span class="basic-card--data">240 555-1212 Ext: 2930</span>
+    
+          <hr class="margin-top-4">
+    
+          <h3>Government Business Alternate POC</h3>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-half">
+              <div>
+                <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
+                <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
+                <span class="basic-card--data">240 555-1212 Ext: 2930</span>
+              </div>
             </div>
-          </div>
-          <div class="usa-width-one-half">
-            <div>
-              <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
-              <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
-              <span class="basic-card--data">UNITED STATES</span>
-            </div>
-          </div>
-        </div>
-  
-        <hr class="margin-top-4">
-  
-        <h3>Government Business Alternate POC</h3>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-half">
-            <div>
-              <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
-              <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
-              <span class="basic-card--data">240 555-1212 Ext: 2930</span>
-            </div>
-          </div>
-          <div class="usa-width-one-half">
-            <div>
-              <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
-              <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
-              <span class="basic-card--data">UNITED STATES</span>
+            <div class="usa-width-one-half">
+              <div>
+                <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
+                <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
+                <span class="basic-card--data">UNITED STATES</span>
+              </div>
             </div>
           </div>
         </div>
@@ -400,214 +426,220 @@
     </div>
   
     <!--NAICS table example-->
-    <div class="usa-grid padding-0">
-      <div class="usa-width-two-thirds basic-card--content">
-        <hr class="hr-15">
-        <h2 class="basic-card--content-title">Service Contract Reports</h2>
-  
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-whole">
-            <div class="datatable-container">
-                <div class="sam-datatable-title">
-                    <input #filter placeholder="Filter agency or title">
-                </div>
-                <sam-datatable #table samSort  class="sam-datatable--light"> <!-- [dataSource]="dataSource" -->
-                    <!-- Column Definition: agency -->
-                    <ng-container cdkColumnDef="agency">
-                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
-                            Agency
-                        </th>
-                        <td sam-cell *cdkCellDef="let row"> {{row.agency}} </td>
-                    </ng-container>
-  
-                    <!-- Column Definition: cfdaNumber -->
-                    <ng-container cdkColumnDef="cfdaNumber">
-                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>CFDA #
-                        </th>
-                        <td sam-cell *cdkCellDef="let row"> {{row.cfdaNumber}} </td>
-                    </ng-container>
-  
-                    <!-- Column Definition: title -->
-                    <ng-container cdkColumnDef="title">
-                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
-                            Title
-                        </th>
-                        <td sam-cell *cdkCellDef="let row"> {{row.title}} </td>
-                    </ng-container>
-  
-                    <!-- Column Definition: cost -->
-                    <ng-container cdkColumnDef="cost">
-                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
-                            Cost
-                        </th>
-                        <td sam-cell *cdkCellDef="let row"> {{row.cost}} </td>
-                    </ng-container>
-  
-                    <!-- Column Definition: lastUpdatedDate -->
-                    <ng-container cdkColumnDef="lastUpdatedDate">
-                        <th sam-header-cell *cdkHeaderCellDef>
-                            Last Updated
-                        </th>
-                        <td sam-cell *cdkCellDef="let row"> {{row.lastUpdatedDate}} </td>
-                    </ng-container>
-                    <tr sam-header-row></tr>
-                     <!-- *cdkHeaderRowDef="displayedColumns"></tr> -->
-                    <tr sam-row >
-                      <!-- *cdkRowDef="let row; columns: displayedColumns;
-                        let first = first; let last = last; let even = even; let odd = odd"> -->
-                    </tr>
-                </sam-datatable>
-  
-                <div
-                    class="example-no-results"
-                    [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'"
-                    style="padding:10px 0;">
-                    No users found matching filter.
-                </div>
-                <div
-                    [style.display]="dataSource.renderedData.length != 0 ? '' : 'none'"
-                    style="text-align:right;">
-                    <sam-pagination
-                        class="datatable-example"
-                        #paginator [currentPage]="curPage"
-                        [totalPages]="totalPages">
-                    </sam-pagination>
-                </div>
+    <div class="grid-container">
+      <div class="grid-row">
+        <div class="grid-col-4"></div>
+        <div class="grid-col-8">
+          <hr class="hr-15">
+          <h2 class="basic-card--content-title">Service Contract Reports</h2>
+    
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-whole">
+              <div class="datatable-container">
+                  <div class="sam-datatable-title">
+                      <input #filter placeholder="Filter agency or title">
+                  </div>
+                  <sam-datatable #table samSort  class="sam-datatable--light"> <!-- [dataSource]="dataSource" -->
+                      <!-- Column Definition: agency -->
+                      <ng-container cdkColumnDef="agency">
+                          <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                              Agency
+                          </th>
+                          <td sam-cell *cdkCellDef="let row"> {{row.agency}} </td>
+                      </ng-container>
+    
+                      <!-- Column Definition: cfdaNumber -->
+                      <ng-container cdkColumnDef="cfdaNumber">
+                          <th sam-header-cell *cdkHeaderCellDef sam-sort-header>CFDA #
+                          </th>
+                          <td sam-cell *cdkCellDef="let row"> {{row.cfdaNumber}} </td>
+                      </ng-container>
+    
+                      <!-- Column Definition: title -->
+                      <ng-container cdkColumnDef="title">
+                          <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                              Title
+                          </th>
+                          <td sam-cell *cdkCellDef="let row"> {{row.title}} </td>
+                      </ng-container>
+    
+                      <!-- Column Definition: cost -->
+                      <ng-container cdkColumnDef="cost">
+                          <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                              Cost
+                          </th>
+                          <td sam-cell *cdkCellDef="let row"> {{row.cost}} </td>
+                      </ng-container>
+    
+                      <!-- Column Definition: lastUpdatedDate -->
+                      <ng-container cdkColumnDef="lastUpdatedDate">
+                          <th sam-header-cell *cdkHeaderCellDef>
+                              Last Updated
+                          </th>
+                          <td sam-cell *cdkCellDef="let row"> {{row.lastUpdatedDate}} </td>
+                      </ng-container>
+                      <tr sam-header-row></tr>
+                      <!-- *cdkHeaderRowDef="displayedColumns"></tr> -->
+                      <tr sam-row >
+                        <!-- *cdkRowDef="let row; columns: displayedColumns;
+                          let first = first; let last = last; let even = even; let odd = odd"> -->
+                      </tr>
+                  </sam-datatable>
+    
+                  <div
+                      class="example-no-results"
+                      [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'"
+                      style="padding:10px 0;">
+                      No users found matching filter.
+                  </div>
+                  <div
+                      [style.display]="dataSource.renderedData.length != 0 ? '' : 'none'"
+                      style="text-align:right;">
+                      <sam-pagination
+                          class="datatable-example"
+                          #paginator [currentPage]="curPage"
+                          [totalPages]="totalPages">
+                      </sam-pagination>
+                  </div>
+              </div>
             </div>
           </div>
-        </div>
-  
-        <div class="usa-grid padding-0 margin-top-4">
-          <div class="usa-width-one-whole">
-            <div class="datatable-container">
-                <div class="sam-datatable-title">
-                    <input #filter placeholder="Filter agency or title">
-                    <div class="title">
-                      <span>Showing Subcontractors For</span>
-                      <div>01190198010C0157N0001978C0097</div>
-                    </div>
-                </div>
-                <sam-datatable #table samSort [dataSource]="dataSource" class="sam-datatable--light">
-                    <!-- Column Definition: agency -->
-                    <ng-container cdkColumnDef="agency">
-                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
-                            Agency
-                        </th>
-                        <td sam-cell *cdkCellDef="let row"> {{row.agency}} </td>
-                    </ng-container>
-  
-                    <!-- Column Definition: cfdaNumber -->
-                    <ng-container cdkColumnDef="cfdaNumber">
-                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>CFDA #
-                        </th>
-                        <td sam-cell *cdkCellDef="let row"> {{row.cfdaNumber}} </td>
-                    </ng-container>
-  
-                    <!-- Column Definition: title -->
-                    <ng-container cdkColumnDef="title">
-                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
-                            Title
-                        </th>
-                        <td sam-cell *cdkCellDef="let row"> {{row.title}} </td>
-                    </ng-container>
-  
-                    <!-- Column Definition: cost -->
-                    <ng-container cdkColumnDef="cost">
-                        <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
-                            Cost
-                        </th>
-                        <td sam-cell *cdkCellDef="let row"> {{row.cost}} </td>
-                    </ng-container>
-  
-                    <!-- Column Definition: lastUpdatedDate -->
-                    <ng-container cdkColumnDef="lastUpdatedDate">
-                        <th sam-header-cell *cdkHeaderCellDef>
-                            Last Updated
-                        </th>
-                        <td sam-cell *cdkCellDef="let row"> {{row.lastUpdatedDate}} </td>
-                    </ng-container>
-  
-                    <tr sam-header-row></tr>
-                    <!-- *cdkHeaderRowDef="displayedColumns"></tr> -->
-                    <tr sam-row>
-                       <!-- *cdkRowDef="let row; columns: displayedColumns;
-                        let first = first; let last = last; let even = even; let odd = odd"> -->
-                    </tr>
-                </sam-datatable>
-  
-                <div
-                    class="example-no-results"
-                    [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'"
-                    style="padding:10px 0;">
-                    No users found matching filter.
-                </div>
-                <div
-                    [style.display]="dataSource.renderedData.length != 0 ? '' : 'none'"
-                    style="text-align:right;">
-                    <sam-pagination
-                        class="datatable-example"
-                        #paginator [currentPage]="curPage"
-                        [totalPages]="totalPages">
-                    </sam-pagination>
-                </div>
+    
+          <div class="usa-grid padding-0 margin-top-4">
+            <div class="usa-width-one-whole">
+              <div class="datatable-container">
+                  <div class="sam-datatable-title">
+                      <input #filter placeholder="Filter agency or title">
+                      <div class="title">
+                        <span>Showing Subcontractors For</span>
+                        <div>01190198010C0157N0001978C0097</div>
+                      </div>
+                  </div>
+                  <sam-datatable #table samSort [dataSource]="dataSource" class="sam-datatable--light">
+                      <!-- Column Definition: agency -->
+                      <ng-container cdkColumnDef="agency">
+                          <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                              Agency
+                          </th>
+                          <td sam-cell *cdkCellDef="let row"> {{row.agency}} </td>
+                      </ng-container>
+    
+                      <!-- Column Definition: cfdaNumber -->
+                      <ng-container cdkColumnDef="cfdaNumber">
+                          <th sam-header-cell *cdkHeaderCellDef sam-sort-header>CFDA #
+                          </th>
+                          <td sam-cell *cdkCellDef="let row"> {{row.cfdaNumber}} </td>
+                      </ng-container>
+    
+                      <!-- Column Definition: title -->
+                      <ng-container cdkColumnDef="title">
+                          <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                              Title
+                          </th>
+                          <td sam-cell *cdkCellDef="let row"> {{row.title}} </td>
+                      </ng-container>
+    
+                      <!-- Column Definition: cost -->
+                      <ng-container cdkColumnDef="cost">
+                          <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
+                              Cost
+                          </th>
+                          <td sam-cell *cdkCellDef="let row"> {{row.cost}} </td>
+                      </ng-container>
+    
+                      <!-- Column Definition: lastUpdatedDate -->
+                      <ng-container cdkColumnDef="lastUpdatedDate">
+                          <th sam-header-cell *cdkHeaderCellDef>
+                              Last Updated
+                          </th>
+                          <td sam-cell *cdkCellDef="let row"> {{row.lastUpdatedDate}} </td>
+                      </ng-container>
+    
+                      <tr sam-header-row></tr>
+                      <!-- *cdkHeaderRowDef="displayedColumns"></tr> -->
+                      <tr sam-row>
+                        <!-- *cdkRowDef="let row; columns: displayedColumns;
+                          let first = first; let last = last; let even = even; let odd = odd"> -->
+                      </tr>
+                  </sam-datatable>
+    
+                  <div
+                      class="example-no-results"
+                      [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'"
+                      style="padding:10px 0;">
+                      No users found matching filter.
+                  </div>
+                  <div
+                      [style.display]="dataSource.renderedData.length != 0 ? '' : 'none'"
+                      style="text-align:right;">
+                      <sam-pagination
+                          class="datatable-example"
+                          #paginator [currentPage]="curPage"
+                          [totalPages]="totalPages">
+                      </sam-pagination>
+                  </div>
+              </div>
             </div>
           </div>
+    
         </div>
-  
       </div>
     </div>
   
     <!--Disaster Response example -->
-    <div class="usa-grid padding-0">
-      <div class="usa-width-two-thirds basic-card--content">
-        <hr class="hr-15">
-        <h2 class="basic-card--content-title">Disaster Response</h2>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-whole">
-            <div class="padding-205">
-              <sam-alert-next type="checked" class="text-base-dark">
-                Yes, this entity appears in disaster response registry
-              </sam-alert-next>
-              <sam-alert-next type="unchecked" class="text-base-dark">
-                <ul>
-                  <li>No, this enitty does not require bonding to bid on contracts</li>
-                </ul>
-              </sam-alert-next>
-            </div>
-            <div class="text-base-dark">
-              <dl>
-                <dt>
-                  States
-                </dt>
-                <dd class="text-semibold margin-0">
-                  District of Columbia, Maryland, Virginia
-                </dd>
-              </dl>
-              <dl>
-                <dt>
-                  Counties
-                </dt>
-                <dd class="text-semibold margin-0">
-                  MD: Montgomery, Prince Georges, Baltimore
-                </dd>
-                <dd class="text-semibold margin-0">
-                  MD: Montgomery, Prince Georges, Baltimore
-                </dd>
-              </dl>
-              <dl>
-                <dt>
-                  Metropolitan Statistical Areas
-                </dt>
-                <dd class="text-semibold margin-0">
-                  DC: Washington
-                </dd>
-                <dd class="text-semibold margin-0">
-                  MD: Baltimore
-                </dd>
-                <dd class="text-semibold margin-0">
-                  VA: Alexandria, Falls Church
-                </dd>
-              </dl>
+    <div class="grid-container">
+      <div class="grid-row">
+        <div class="grid-col-4"></div>
+        <div class="grid-col-8">
+          <hr class="hr-15">
+          <h2 class="basic-card--content-title">Disaster Response</h2>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-whole">
+              <div class="padding-205">
+                <sam-alert-next type="checked" class="text-base-dark">
+                  Yes, this entity appears in disaster response registry
+                </sam-alert-next>
+                <sam-alert-next type="unchecked" class="text-base-dark">
+                  <ul>
+                    <li>No, this enitty does not require bonding to bid on contracts</li>
+                  </ul>
+                </sam-alert-next>
+              </div>
+              <div class="text-base-dark">
+                <dl>
+                  <dt>
+                    States
+                  </dt>
+                  <dd class="text-semibold margin-0">
+                    District of Columbia, Maryland, Virginia
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>
+                    Counties
+                  </dt>
+                  <dd class="text-semibold margin-0">
+                    MD: Montgomery, Prince Georges, Baltimore
+                  </dd>
+                  <dd class="text-semibold margin-0">
+                    MD: Montgomery, Prince Georges, Baltimore
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>
+                    Metropolitan Statistical Areas
+                  </dt>
+                  <dd class="text-semibold margin-0">
+                    DC: Washington
+                  </dd>
+                  <dd class="text-semibold margin-0">
+                    MD: Baltimore
+                  </dd>
+                  <dd class="text-semibold margin-0">
+                    VA: Alexandria, Falls Church
+                  </dd>
+                </dl>
+              </div>
             </div>
           </div>
         </div>
@@ -615,27 +647,32 @@
     </div>
   
     <!--Proceedings example-->
-    <div class="usa-grid padding-0">
-      <div class="usa-width-two-thirds basic-card--content">
-        <hr class="hr-15">
-        <h2 class="basic-card--content-title">Proceedings</h2>
-        <div class="usa-grid padding-0">
-          <div class="usa-width-one-whole">
-            <p class="basic-card--summary">Registrants in the System for Award Management (SAM) respond to proceedings questions in
-              accordance with FAR 52.209-7, FAR 52.209-9, or 2.C.F.R. 200 Appendix XII. Their responses are
-              not displayed in SAM. They are sent to FAPIIS.gov for display as applicable. Maintaining an
-              active registration in SAM demonstrates the registrant responded to the proceedings questions.</p>
-  
-            <button class="sam button next float-right">Go to FAPIIS.gov</button>
+    <div class="grid-container">
+      <div class="grid-row">
+        <div class="grid-col-4"></div>
+        <div class="grid-col-8">
+          <hr class="hr-15">
+          <h2 class="basic-card--content-title">Proceedings</h2>
+          <div class="usa-grid padding-0">
+            <div class="usa-width-one-whole">
+              <p class="basic-card--summary">Registrants in the System for Award Management (SAM) respond to proceedings questions in
+                accordance with FAR 52.209-7, FAR 52.209-9, or 2.C.F.R. 200 Appendix XII. Their responses are
+                not displayed in SAM. They are sent to FAPIIS.gov for display as applicable. Maintaining an
+                active registration in SAM demonstrates the registrant responded to the proceedings questions.</p>
+    
+              <button class="sam button next float-right">Go to FAPIIS.gov</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   
     <!--Last Updated example-->
-    <div class="usa-grid padding-0 sam-tag--date">
-      <div class="usa-width-whole float-right margin-top-2">
+    <div class="grid-container">
+      <div class="grid-row">
+      <div class="grid-col-4"></div>
+      <div class="grid-col-8 float-right margin-top-2">
         Last updated by Daniel Smith on Jun 12, 2019 at 10:32AM
       </div>
     </div>
-  </div>
+  <!-- </div> -->
