@@ -10,7 +10,7 @@
     <div class="usa-grid">
       <div class="usa-width-one-third sam-sidenav">
   
-        <sam-sidenav [model]="config"></sam-sidenav>
+        <!-- <sam-sidenav [model]="config"></sam-sidenav> -->
   
         <div class="feedback-btn">
           <div class="feedback-btn--label"><i class="fa fa-comments"></i> What you think matters!</div>
@@ -390,7 +390,7 @@
                 <div class="sam-datatable-title">
                     <input #filter placeholder="Filter agency or title">
                 </div>
-                <sam-datatable #table samSort [dataSource]="dataSource" class="sam-datatable--light">
+                <sam-datatable #table samSort  class="sam-datatable--light"> <!-- [dataSource]="dataSource" -->
                     <!-- Column Definition: agency -->
                     <ng-container cdkColumnDef="agency">
                         <th sam-header-cell *cdkHeaderCellDef sam-sort-header>
@@ -429,9 +429,11 @@
                         </th>
                         <td sam-cell *cdkCellDef="let row"> {{row.lastUpdatedDate}} </td>
                     </ng-container>
-                    <tr sam-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-                    <tr sam-row *cdkRowDef="let row; columns: displayedColumns;
-                        let first = first; let last = last; let even = even; let odd = odd">
+                    <tr sam-header-row></tr>
+                     <!-- *cdkHeaderRowDef="displayedColumns"></tr> -->
+                    <tr sam-row >
+                      <!-- *cdkRowDef="let row; columns: displayedColumns;
+                        let first = first; let last = last; let even = even; let odd = odd"> -->
                     </tr>
                 </sam-datatable>
   
@@ -504,9 +506,11 @@
                         <td sam-cell *cdkCellDef="let row"> {{row.lastUpdatedDate}} </td>
                     </ng-container>
   
-                    <tr sam-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-                    <tr sam-row *cdkRowDef="let row; columns: displayedColumns;
-                        let first = first; let last = last; let even = even; let odd = odd">
+                    <tr sam-header-row></tr>
+                    <!-- *cdkHeaderRowDef="displayedColumns"></tr> -->
+                    <tr sam-row>
+                       <!-- *cdkRowDef="let row; columns: displayedColumns;
+                        let first = first; let last = last; let even = even; let odd = odd"> -->
                     </tr>
                 </sam-datatable>
   

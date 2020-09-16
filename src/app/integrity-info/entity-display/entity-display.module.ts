@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -16,6 +16,7 @@ import { EntityDisplayRoutingModule } from './entity-display-routing.module';
       EntityDisplayRoutingModule
     ],
     exports: [SamEntityDisplayComponent],
-    providers: []
+    providers: [],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
   })
   export class EntityDisplayPageModule { }
