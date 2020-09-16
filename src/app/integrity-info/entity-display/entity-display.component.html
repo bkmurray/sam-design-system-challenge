@@ -7,8 +7,8 @@
     </div>
   
     <!--Sam Sidenav & Basic Card example-->
-    <div class="usa-grid">
-      <div class="usa-width-one-third sam-sidenav">
+    <div class="grid-row">
+      <div class="grid-col-4">
   
         <!-- <sam-sidenav [model]="config"></sam-sidenav> -->
   
@@ -18,70 +18,91 @@
         </div>
       </div>
   
-      <div class="usa-width-two-thirds">
+      <div class="grid-col-8">
         <h1>
           Essex National Heritage Commission
         </h1>
         <div class="sam-alert--info">
           <p>This entity record is only available FOR OFFICIAL USE ONLY</p>
         </div>
-        <div class="basic-card">
-          <div class="usa-grid">
-            <div class="usa-width-one-half">
+        <div class="sds-card">
+          <div class="grid-row">
+            <div class="grid-col-6">
               <div>
-                <span class="sam-tag--info-purple">DUNS</span>
-                <label class="basic-card--label">Unique Entity ID </label>
-                <span class="basic-card--data">123456789</span>
+                <span class="usa-tag sds-tag--info-purple sds-static--tag">DUNS</span>
+                <div class="sds-field">
+                  <div class="sds-field__name">Unique Entity ID </div>
+                  <div class="sds-field__value">123456789</div>
+                </div>
               </div>
               <div class="margin-top-2">
-                <span class="sam-tag--info-white">SAM</span>
-                <label class="basic-card--label">Unique Entity ID</label>
-                <span class="basic-card--data">123456789</span>
+                <span class="usa-tag sds-tag--info-white sds-static--tag">SAM</span>
+                <div class="sds-field">
+                  <div class="sds-field__name">Unique Entity ID</div>
+                  <div class="sds-field__value">123456789</div>
+                </div>
               </div>
-              <div>
-                <label class="basic-card--label">CAGE/NCAGE</label>
-                <span class="basic-card--data">N123F</span>
+              <div class="sds-field margin-top-2">
+                <div class="sds-field__name">CAGE/NCAGE</div>
               </div>
-              <div>
-                <label class="basic-card--label">DODAAC</label>
-                <span class="basic-card--data">DODHq0938</span>
+              <div class="sds-field">
+                <div class="sds-field__value">N123F</div>
+              </div>
+              <div class="sds-field margin-top-2">
+                <div class="sds-field__name">DODAAC</div>
+              </div>
+              <div class="sds-field">
+                <div class="sds-field__value">DODHq0938</div>
               </div>
             </div>
-            <div class="usa-width-one-half">
-              <div class="sam-tag">
-                <label class="sam-type--label-title">Expiration Date</label>
-                <span class="sam-sds-tag sam-sds-tag--outline--danger flex-justify-center">Feb 20, 2019</span>
+            <div class="grid-col-6">
+              <div class="sds-field sds-field--stacked  sds-field--featured">
+                <div class="sds-field__name">Expiration Date</div>
+                <div class="sds-field__value">
+                  <span class="sds-tag sds-tag--outline flex-justify-center">Feb 20, 2019</span></div>
               </div>
-              <div class="sam-tag">
-                <label class="sam-type--label-title">Status</label>
-                <span class="sam-sds-tag sam-sds-tag--outline">
-                  <i class="sam-sds-status sam-sds-status--sm sam-sds-status--green"></i>Active</span>
-  
+              <div class="sds-field sds-field--stacked  sds-field--featured">
+                <div class="sds-field__name">Status</div>
+                <div class="sds-field__value">
+                  <span class="sds-tag sds-tag--outline">
+                    <em class="sds-status sds-status--sm" 
+                      [class.sds-status--green]="true"></em>Active</span>
+                </div>
               </div>
-              <div class="sam-alert--link">
+              <!-- <div class="sam-alert--link">
                 <div class="sam-alert-content">
                   <a href="">Review Exclusions</a>
                   <a href="">Review Debt Subject to Offset</a>
                 </div>
-              </div>
-              <div>
-                <label class="basic-card--label">Purpose of Registration</label>
-                <span class="basic-card--data">All Awards</span>
-              </div>
+              </div> -->
+              <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Purpose of Registration</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">All Awards</div>
+                </div>
             </div>
           </div>
-          <div class="usa-grid">
-            <div class="usa-width-one-half">
-              <label class="basic-card--label">Physical Address</label>
-              <span class="basic-card--data">10 Federal St. Suit 12</span>
-              <span class="basic-card--data">Salem, Massachusetts</span>
-              <span class="basic-card--data">01970-3875, United States</span>
+          <div class="grid-row margin-top-2">
+            <div class="grid-col-6">
+              <div class="sds-field sds-field--stacked ">
+                <div class="sds-field__name">Physical Address</div>
+                <div class="sds-field__value">
+                  <div>10 Federal St. Suit 12</div>
+                  <div>Salem, Massachusetts</div>
+                  <div>01970-3875, United States</div>
+                </div>
+              </div>
             </div>
-            <div class="usa-width-one-half">
-              <label class="basic-card--label">Mailing Address</label>
-              <span class="basic-card--data">10 Federal St. Suit 12</span>
-              <span class="basic-card--data">Salem, Massachusetts</span>
-              <span class="basic-card--data">01970-3875, United States</span>
+            <div class="grid-col-6">
+              <div class="sds-field sds-field--stacked ">
+                <div class="sds-field__name">Mailing Address</div>
+                <div class="sds-field__value">
+                  <div>10 Federal St. Suit 12</div>
+                  <div>Salem, Massachusetts</div>
+                  <div>01970-3875, United States</div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="basic-card--note">*The DUNS number is currently the official Unique Entity ID</div>
