@@ -15,7 +15,20 @@
                 <div class="a active" href="#home">Entity Registration</div>
                 <a href="integrity">Integrity information</a>
               </div> -->
-              <div style="float:left;font-size: 20px;"><fa-icon [icon]="['sds', 'information-circle']" [fixedWidth]="true"></fa-icon></div>
+              <div #sideNav style=" float:left; font-size: 25px;"><fa-icon [icon]="['sds', 'information-circle']" [fixedWidth]="true"></fa-icon></div>
+              <div [sdsPopup]='sideNav' position="top-center" placement="out"
+                aria-label="Tooltip that hides when scrolled out of the container">
+                <div class="sds-alert info bg-base-lightest" style="width:800px">
+                  <div class="sds-alert-icon">
+                    <fa-icon [icon]="['fas', 'exclamation-circle']" [fixedWidth]="true"></fa-icon>			
+                  </div>
+                  <span><b>Over here, you can expand the filters below to help find the entity you are looking for. 
+                    Select the “carrot” to expand the filter. You can search by Keyword or DUNS, or expand the
+                    remaining filters to select radio buttons to support your search.
+                    Any entity that matches your search criteria will display to the right.</b></span>
+                </div>
+              </div>
+
               <table class="table table-sm sidebar margin-top-4" style="border: 1px solid black; width: 80%; background-color: #FFFAF0">
                 <tbody>
                   <tr>

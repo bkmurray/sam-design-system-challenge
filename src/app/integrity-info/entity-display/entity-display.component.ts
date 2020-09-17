@@ -5,12 +5,14 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   ElementRef,
-  Inject
+  Inject,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 @Component({
   selector: 'sam-entity-display',
   templateUrl: 'entity-display.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ ]
 })
 
@@ -20,12 +22,16 @@ export class SamEntityDisplayComponent implements OnInit {
   sideNav = "Test SidNav Message";
   download = "Test Download Message";
 
-  constructor(){
+  constructor(private change: ChangeDetectorRef){
 
   }
   
   ngOnInit(){
 
+  }
+  
+  ngAfterViewInit() {      
+    this.change.detectChanges();
   }
 
   public infoClicked(text: String){

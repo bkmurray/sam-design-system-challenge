@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SdsPopupModule } from '@gsa-sam/components';
 
 import { SamEntityDisplayComponent } from './entity-display.component';
 import { EntityDisplayRoutingModule } from './entity-display-routing.module';
@@ -13,7 +14,8 @@ import { EntityDisplayRoutingModule } from './entity-display-routing.module';
       CommonModule,
       RouterModule,
       FontAwesomeModule,
-      EntityDisplayRoutingModule
+      EntityDisplayRoutingModule,
+      SdsPopupModule
     ],
     exports: [SamEntityDisplayComponent],
     providers: [],
