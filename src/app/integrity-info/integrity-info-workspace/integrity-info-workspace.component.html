@@ -7,10 +7,20 @@
   </button>
 
   <!-- TITLE -->
-  <h1 class="font-heading-md text-semibold tablet-lg:width-mobile">Non-Federal Workspace
-    <fa-icon [icon]="['fas', 'info-circle']" [fixedWidth]="true"></fa-icon>
+  <h1 class="font-heading-md text-semibold tablet-lg:width-mobile" #NonFedWorkspace style="float:right;font-size: 20px;">Non-Federal Workspace
+	  <fa-icon [icon]="['fas', 'info-circle']" [fixedWidth]="true"></fa-icon>
   </h1>
-
+  <div [sdsPopup]='NonFedWorkspace' position="bottom-left" placement="out"
+  aria-label="Tooltip that hides when scrolled out of the container">
+  <div class="sds-alert info bg-base-lightest" style="width:800px">
+	  <div class="sds-alert-icon">
+		  <fa-icon [icon]="['fas', 'exclamation-circle']" [fixedWidth]="true"></fa-icon>			
+	  </div>
+	  <span><b>Welcome to your Entity Workspace! All of the entity management registrations which you have access to will display on this page. 
+		  You may use the keyword search bar at the top of the page to find a specific entity registration, select the “Actions” button to download your 
+		  entity registrations, or click Register Entity to begin the process of registering an entity.</b></span>
+  </div>
+  </div><br><br>
 
   <!-- SEARCH (OPTIONAL) -->
   <sds-search
