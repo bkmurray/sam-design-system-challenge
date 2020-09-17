@@ -1,7 +1,19 @@
 <!-- <div class="entity-display"> -->
     <!-- <div class="grid-container"> -->
       <div style="float:right">
-        <div style="float:left;font-size: 20px;"><fa-icon [icon]="['sds', 'information-circle']" [fixedWidth]="true"></fa-icon></div>
+        <div class="tooltip">
+            <div style="font-size: 20px;"><fa-icon [icon]="['sds', 'information-circle']" [fixedWidth]="true"></fa-icon></div>
+            <div class="tooltiptextright sds-alert info bg-base-lightest" style="width: 800px">
+                <div class="sds-alert-icon">
+                  <fa-icon [icon]="['fas', 'exclamation-circle']" [fixedWidth]="true"></fa-icon>			
+                </div>
+                <span><b>Use the Download icon to download a complete copy of the Entity Information
+                   page via PDF. The Follow icon allows you to receive email alerts any time this entity
+                    is updated. If you wish to unfollow the entity, simply select UnFollow. You can also 
+                    manage entities you’ve chosen to follow in the “Following” section of your User Profile.</b></span>
+              </div>
+        </div>
+        <!-- <div style="float:left;font-size: 20px;"><fa-icon [icon]="['sds', 'information-circle']" [fixedWidth]="true"></fa-icon></div> -->
         <button type="button" class="btn btn-outline-primary">Download</button>
         <button type="button" class="btn btn-outline-secondary">Follow</button>
       </div>
@@ -10,15 +22,25 @@
     <!--Sam Sidenav & Basic Card example-->
     <div class = "grid-container margin-top-6">
       <div class="grid-row">
-        <div class="grid-col-4">
-            <!-- <div class="sidebar">
-                <div class="a active" href="#home">Entity Registration</div>
-                <a href="integrity">Integrity information</a>
-              </div> -->
-              <div #sideNav style=" float:left; font-size: 25px;"><fa-icon [icon]="['sds', 'information-circle']" [fixedWidth]="true"></fa-icon></div>
-              <div [sdsPopup]='sideNav' position="top-center" placement="out"
+        <div class="grid-col-4">  
+          <div class="tooltip">
+              <div style="font-size: 20px;"><fa-icon [icon]="['sds', 'information-circle']" [fixedWidth]="true"></fa-icon></div>
+              <div class="tooltiptext sds-alert info bg-base-lightest" style="width: 800px">
+                  <div class="sds-alert-icon">
+                    <fa-icon [icon]="['fas', 'exclamation-circle']" [fixedWidth]="true"></fa-icon>			
+                  </div>
+                  <span><b>Welcome to the Entity Information Display page! This page will display all data 
+                    available to you for the entity you’re viewing. Similar to legacy SAM.gov, data that is 
+                    available to you depends on your roles. In the gray box you will see a summary of the 
+                    entity including its Expiration Date and Status. The page is divided into different sections
+                     that correspond to how the information was entered at the time of registration. Use the left-hand 
+                     navigation to quickly jump to a specific section.</b></span>
+                </div>
+          </div>            
+              <!-- <div #sideNav style="float:left; font-size: 20px;"><fa-icon [icon]="['sds', 'information-circle']" [fixedWidth]="true"></fa-icon></div>
+              <div [sdsPopup]='sideNav' position="bottom-right" placement="out"
                 aria-label="Tooltip that hides when scrolled out of the container">
-                <div class="sds-alert info bg-base-lightest" style="width:800px">
+                <div class="sds-alert info bg-base-lightest" style="width: 800px">
                   <div class="sds-alert-icon">
                     <fa-icon [icon]="['fas', 'exclamation-circle']" [fixedWidth]="true"></fa-icon>			
                   </div>
@@ -27,9 +49,8 @@
                     remaining filters to select radio buttons to support your search.
                     Any entity that matches your search criteria will display to the right.</b></span>
                 </div>
-              </div>
-
-              <table class="table table-sm sidebar margin-top-4" style="border: 1px solid black; width: 80%; background-color: #FFFAF0">
+              </div> -->
+              <table class="table table-sm margin-top-4" style="border: 1px solid black; width: 80%; background-color: #FFFAF0">
                 <tbody>
                   <tr>
                     <td style="border: 1px solid black; height: 40px">Entity Registration</td>
@@ -171,9 +192,21 @@
                 </select>
               </div>
               <div class="grid-col-6">
-                <div class="margin-top-6" style="float:left;font-size: 20px;">
-                  <fa-icon [icon]="['sds', 'information-circle']" [fixedWidth]="true" ></fa-icon>
+                <div class="tooltip margin-top-6">
+                    <div style="font-size: 20px;"><fa-icon [icon]="['sds', 'information-circle']" [fixedWidth]="true"></fa-icon></div>
+                    <div class="tooltiptextmiddle sds-alert info bg-base-lightest" style="width: 800px">
+                        <div class="sds-alert-icon">
+                          <fa-icon [icon]="['fas', 'exclamation-circle']" [fixedWidth]="true"></fa-icon>			
+                        </div>
+                        <span><b>The version drop-down indicates which version of the Entity Registration
+                           record you are viewing. “Current Record” is the most recent version of the entity 
+                           record. If an entity has previous versions, or records in “Inactive” status, you 
+                           can use the drop-down to view the entity record as it was at that point-in-time.</b></span>
+                      </div>
                 </div>
+                <!-- <div class="margin-top-6" style="float:left;font-size: 20px;">
+                  <fa-icon [icon]="['sds', 'information-circle']" [fixedWidth]="true" ></fa-icon>
+                </div> -->
               </div>
             </div>
           </div>

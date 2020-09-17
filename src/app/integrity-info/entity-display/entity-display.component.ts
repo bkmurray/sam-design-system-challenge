@@ -12,6 +12,7 @@ import {
 @Component({
   selector: 'sam-entity-display',
   templateUrl: 'entity-display.component.html',
+  styleUrls: ['entity-display.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ ]
 })
