@@ -4,19 +4,31 @@ import {
   ViewChild,
   AfterViewInit,
   ChangeDetectorRef,
-  ElementRef
+  ElementRef,
+  Inject
 } from '@angular/core';
 
 @Component({
-    selector: 'sam-entity-display',
-    templateUrl: 'entity-display.component.html',
-    providers: [ ]
-  })
+  selector: 'sam-entity-display',
+  templateUrl: 'entity-display.component.html',
+  providers: [ ]
+})
 
 export class SamEntityDisplayComponent implements OnInit {
+
+  dropdown = "Test Dropdown Message";
+  sideNav = "Test SidNav Message";
+  download = "Test Download Message";
+
+  constructor(){
+
+  }
   
   ngOnInit(){
 
+  }
+
+  public infoClicked(text: String){
   }
 }
 
