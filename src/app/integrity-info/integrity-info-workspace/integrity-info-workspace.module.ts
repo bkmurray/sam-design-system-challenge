@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SdsPopupModule } from '@gsa-sam/components';
 
 import { BaseAwardeeFilterService,
   		AwardeeNameFilterService,
@@ -39,6 +40,7 @@ import { IntegrityInfoWorkspaceComponent } from './integrity-info-workspace.comp
     SdsPageModule,
     SdsSearchModule,
     SdsFiltersModule,
+    SdsPopupModule,
     SdsSubheaderModule, 
     SearchListServiceModule,
     IntegrityInfoWsItemModule,
