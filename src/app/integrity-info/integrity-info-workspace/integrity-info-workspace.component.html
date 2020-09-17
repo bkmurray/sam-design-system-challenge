@@ -37,34 +37,45 @@
 <main>
 	<div class="grid-container">
 		<div class="sds-page condensed">
-			<div #tooltipRichcontents style="float:right;font-size: 25px;">
-				<fa-icon [icon]="['fas', 'info-circle']" [fixedWidth]="true"></fa-icon></div>			
-			<div #tooltipRichcontent style="float:left;font-size:25px;">
-				<fa-icon [icon]="['fas', 'info-circle']" [fixedWidth]="true" ></fa-icon>					
-     		</div>			  
-			<div [sdsPopup]='tooltipRichcontent' position="bottom-left" placement="out"
-				aria-label="Tooltip that hides when scrolled out of the container">
-				<div class="sds-alert info bg-base-lightest" style="width:800px">
-					<div class="sds-alert-icon">
-						<fa-icon [icon]="['fas', 'exclamation-circle']" [fixedWidth]="true"></fa-icon>			
+			<div class="grid-row">
+				<div class="grid-col-6">
+						<div #tooltipRichcontent style="float:left;font-size:20px;">
+								<fa-icon [icon]="['fas', 'info-circle']" [fixedWidth]="true" ></fa-icon>					
+							</div>
+									  
+					<div [sdsPopup]='tooltipRichcontent' position="bottom-left" placement="out"
+					aria-label="Tooltip that hides when scrolled out of the container">
+					<div class="sds-alert info bg-base-lightest" style="width:800px">
+						<div class="sds-alert-icon">
+							<fa-icon [icon]="['fas', 'exclamation-circle']" [fixedWidth]="true"></fa-icon>			
+						</div>
+						<span><b>Expand the filters below to help find the entity you are looking for. 
+							Select the “carrot” to expand the filter. You can search by Keyword or DUNS, or expand the
+							 remaining filters to select radio buttons to support your search.
+							 Any entity that matches your search criteria will display to the right.</b></span>
 					</div>
-					<span><b>Expand the filters below to help find the entity you are looking for. 
-						Select the “carrot” to expand the filter. You can search by Keyword or DUNS, or expand the
-						 remaining filters to select radio buttons to support your search.
-						 Any entity that matches your search criteria will display to the right.</b></span>
+					</div><br><br>	
+					
+				</div>	
+				<div class="grid-col-5"></div>
+				<div class="grid-col-1">	
+					
+						<div #tooltipRichcontents style="float:right;font-size: 20px;">
+								<fa-icon [icon]="['fas', 'info-circle']" [fixedWidth]="true"></fa-icon>
+							</div>	
+							<div [sdsPopup]='tooltipRichcontents' position="top-right" placement="in"
+							aria-label="Tooltip that hides when scrolled out of the container">
+							<div class="sds-alert info bg-base-lightest" style="width:800px">
+								<div class="sds-alert-icon">
+									<fa-icon [icon]="['fas', 'exclamation-circle']" [fixedWidth]="true"></fa-icon>			
+								</div>
+								<span><b>Here, you can manage all of your entity registrations. Whether they are Active, Expired, or just in Draft state, 
+									they will all show up here. Entities that are Active or Expired, and have a Work in Progress registration started will 
+									show up below one another. On the left, you can view a snapshot of quick information about the entity. To the right, you can view the current status of the registration. If you select the three dot ellipsis action button, you can Update, View, or Delete/Deactivate your entity registration.</b></span>
+							</div>
+							</div><br><br>
 				</div>
-				</div><br><br>
-				<div [sdsPopup]='tooltipRichcontents' position="bottom-left" placement="out"
-				aria-label="Tooltip that hides when scrolled out of the container">
-				<div class="sds-alert info bg-base-lightest" style="width:800px">
-					<div class="sds-alert-icon">
-						<fa-icon [icon]="['fas', 'exclamation-circle']" [fixedWidth]="true"></fa-icon>			
-					</div>
-					<span><b>Here, you can manage all of your entity registrations. Whether they are Active, Expired, or just in Draft state, 
-						they will all show up here. Entities that are Active or Expired, and have a Work in Progress registration started will 
-						show up below one another. On the left, you can view a snapshot of quick information about the entity. To the right, you can view the current status of the registration. If you select the three dot ellipsis action button, you can Update, View, or Delete/Deactivate your entity registration.</b></span>
-				</div>
-				</div><br><br>
+			</div>
 				
 			<div class="grid-row grid-gap-4">
 				<div class="grid-col-12 tablet:grid-col-auto">
