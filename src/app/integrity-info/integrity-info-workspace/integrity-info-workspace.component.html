@@ -7,7 +7,10 @@
   </button>
 
   <!-- TITLE -->
-  <h1 class="font-heading-md text-semibold tablet-lg:width-mobile">Non-Federal Workspace</h1>
+  <h1 class="font-heading-md text-semibold tablet-lg:width-mobile">Non-Federal Workspace
+    <fa-icon [icon]="['fas', 'info-circle']" [fixedWidth]="true"></fa-icon>
+  </h1>
+
 
   <!-- SEARCH (OPTIONAL) -->
   <sds-search
@@ -19,9 +22,9 @@
 
   <!-- PRIMARY/SECONDARY BUTTONS (OPTIONAL) -->
   <ng-container subheader-buttons-container>
-    <button class="usa-button usa-button--secondary margin-top-05 tablet:margin-top-0" 
+    <button class="usa-button usa-button--secondary margin-top-05 tablet:margin-top-0"
 		(click)="newAccount($event)">Get Entity ID</button>
-	<button class="usa-button margin-top-05 tablet:margin-top-0" 
+	<button class="usa-button margin-top-05 tablet:margin-top-0"
 		(click)="newAccount($event)">Register Entity</button>
   </ng-container>
 
@@ -34,9 +37,11 @@
 <main>
 	<div class="grid-container">
 		<div class="sds-page condensed">
+			<div style="float:left;font-size: 20px;"><fa-icon [icon]="['fas', 'info-circle']" [fixedWidth]="true"></fa-icon></div>
+			<div style="float:right;font-size: 20px;"><fa-icon [icon]="['fas', 'info-circle']" [fixedWidth]="true"></fa-icon></div>
 			<div class="grid-row grid-gap-4">
 				<div class="grid-col-12 tablet:grid-col-auto">
-				    <sds-toolbar [expanded]="true">
+				    <sds-toolbar [expanded]="true"> 
 				      <sds-accordion>
 				        <sds-accordion-item [expanded]="false">
 				          <sds-accordion-item-header>Navigate To</sds-accordion-item-header>
@@ -44,7 +49,7 @@
 				        </sds-accordion-item>
 				        <sds-accordion-item [expanded]="true">
 				          <sds-accordion-item-header>Filter By</sds-accordion-item-header>
-				          <sds-filters [form]="form" [fields]="filterService.filters" [model]="filterService.model" 
+				          <sds-filters [form]="form" [fields]="filterService.filters" [model]="filterService.model"
 				          		(filterChange)="filterChange$.next($event)">
 				          </sds-filters>
 				        </sds-accordion-item>
@@ -61,6 +66,6 @@
 			      </search-list-layout>
 		  		</div>
 		  	</div>
-	     </div> 
+	     </div>
 	</div>
 </main>
