@@ -14,10 +14,31 @@
                 <div class="a active" href="#home">Entity Registration</div>
                 <a href="integrity">Integrity information</a>
               </div> -->
-              <table class="table table-sm sidebar" style="border: 1px solid black; width: 80%">
+              <table class="table table-sm sidebar" style="border: 1px solid black; width: 80%; background-color: #FFFAF0">
                 <tbody>
                   <tr>
                     <td style="border: 1px solid black; height: 40px">Entity Registration</td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid black; height: 40px"><div style="margin-left: 20px">Core Data</div></td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid black; height: 40px"><div style="margin-left: 40px">Business Information</div></td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid black; height: 40px"><div style="margin-left: 40px">Entity Types</div></td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid black; height: 40px"><div style="margin-left: 40px">Financial Information</div></td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid black; height: 40px"><div style="margin-left: 40px">Points of Contact</div></td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid black; height: 40px"><div style="margin-left: 20px">Assertions</div></td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid black; height: 40px"><div style="margin-left: 20px">Reps and Certs</div></td>
                   </tr>
                   <tr>
                     <td style="border: 1px solid black; height: 40px">Exclusions</td>
@@ -30,7 +51,7 @@
               </table>
           <div class="feedback-btn">
             <div class="feedback-btn--label"><i class="fa fa-comments"></i> What you think matters!</div>
-            <button type="button" class="feedback-btn--shape" style="background-color:blue;">Provide Feedback</button>
+            <button type="button" class="feedback-btn--shape" style="background-color:#00BFFF;">Provide Feedback</button>
           </div>
         </div>
     
@@ -41,7 +62,7 @@
           <div class="sam-alert--info">
             <p>This entity record is only available FOR OFFICIAL USE ONLY</p>
           </div>
-          <div class="sds-card" style="border: 2px solid black; background-color: lightgrey;">
+          <div class="sds-card" style="border: 2px solid black; background-color: #F8F8FF;">
             <div class="grid-row" style="margin: 15px">
               <div class="grid-col-6">
                 <div>
@@ -94,9 +115,9 @@
                 <div class="sds-field margin-top-2">
                     <div class="sds-field__name">Purpose of Registration</div>
                   </div>
-                  <div class="sds-field">
-                    <div class="sds-field__value">All Awards</div>
-                  </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">All Awards</div>
+                </div>
               </div>
             </div>
             <div class="grid-row margin-top-2" style="margin: 15px">
@@ -123,6 +144,13 @@
             </div>
             <div class="basic-card--note" style="margin: 15px">*The DUNS number is currently the official Unique Entity ID</div>
           </div>
+          <label class="usa-label" for="options">Version</label>
+          <select class="usa-select" name="options" id="options">
+            <option value>Current Version</option>
+            <option value="value1">Option A</option>
+            <option value="value2">Option B</option>
+            <option value="value3">Option C</option>
+          </select>
         </div>
       </div>
     </div>
@@ -134,33 +162,47 @@
         <div class="grid-col-8">
           <hr class="hr-15">
           <h2 class="basic-card--content-title">BUSINESS INFORMATION</h2>
-          <div class="usa-grid padding-0">
-            <div class="grid-col-6">
-              <div>
-                <label class="basic-card--label">Doing Business As</label>
-                <span class="basic-card--data">Not Provided</span>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Doing Business As</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Not Provided</div>
+                </div>
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">URL</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value"><a href="essexheritage.org">essexheritage.org</a></div>
+                </div>
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">State / Country of Incorportation</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">MA, USA</div>
+                </div>
               </div>
-              <div>
-                <label class="basic-card--label">URL</label>
-                <span class="basic-card--data"><a href="essexheritage.org">essexheritage.org</a></span>
-              </div>
-              <div>
-                <label class="basic-card--label">State / Country of Incorportation</label>
-                <span class="basic-card--data">MA, USA</span>
-              </div>
-            </div>
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">Division Name</label>
-                <span class="basic-card--data">None</span>
-              </div>
-              <div>
-                <label class="basic-card--label">Division Number</label>
-                <span class="basic-card--data">None</span>
-              </div>
-              <div>
-                <label class="basic-card--label">Congressional District</label>
-                <span class="basic-card--data">MASSACHUSETTS</span>
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Division Name</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">None</div>
+                </div>
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Division Number</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">None</div>
+                </div>
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Congressional District</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">MASSACHUSETTS</div>
+                </div>
               </div>
             </div>
           </div>
@@ -168,21 +210,29 @@
           <hr class="margin-top-4">
     
           <h3>SAM Dates</h3>
-          <div class="usa-grid padding-0">
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">Activation Date</label>
-                <span class="basic-card--data">Dec 11, 2018</span>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-6">                
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Activation Date</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Dec 11, 2018</div>
+                </div>                
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Submission Dates</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Dec 11, 2018</div>
+                </div>
               </div>
-              <div>
-                <label class="basic-card--label">Submission Dates</label>
-                <span class="basic-card--data">Dec 11, 2018</span>
-              </div>
-            </div>
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">Initial Registration Date</label>
-                <span class="basic-card--data">Dec 11, 2018</span>
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Initial Registration Date</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Dec 11, 2018</div>
+                </div>
               </div>
             </div>
           </div>
@@ -190,17 +240,23 @@
           <hr class="margin-top-4">
     
           <h3>Entity Dates</h3>
-          <div class="usa-grid padding-0">
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">Entity Start Date</label>
-                <span class="basic-card--data">Dec 12, 2017</span>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Entity Start Date</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Dec 12, 2017</div>
+                </div>
               </div>
-            </div>
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">Fiscal year End Close Date</label>
-                <span class="basic-card--data">Dec 12, 2017</span>
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Fiscal year End Close Date</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Dec 12, 2017</div>
+                </div>
               </div>
             </div>
           </div>
@@ -208,11 +264,15 @@
           <hr class="margin-top-4">
     
           <h3>Financial Account Information</h3>
-          <div class="usa-grid padding-0">
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">Accepts Credit Card Payments</label>
-                <span class="basic-card--data">Yes</span>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Accepts Credit Card Payments</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Yes</div>
+                </div>
               </div>
             </div>
           </div>
@@ -220,17 +280,23 @@
           <hr class="margin-top-4">
     
           <h3>Immediate Owner</h3>
-          <div class="usa-grid padding-0">
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">CAGE</label>
-                <span class="basic-card--data">Z1234</span>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">CAGE</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Z1234</div>
+                </div>
               </div>
-            </div>
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">Legal Business Name</label>
-                <span class="basic-card--data">The Heritage Foundation</span>
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Legal Business Name</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">The Heritage Foundation</div>
+                </div>
               </div>
             </div>
           </div>
@@ -238,17 +304,23 @@
           <hr class="margin-top-4">
     
           <h3>Highest Level Owner</h3>
-          <div class="usa-grid padding-0">
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">CAGE</label>
-                <span class="basic-card--data">Z1234</span>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">CAGE</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Z1234</div>
+                </div>
               </div>
-            </div>
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">Legal Business Name</label>
-                <span class="basic-card--data">The Heritage Foundation</span>
+              <div class="grid-col-6">
+                  <div class="sds-field margin-top-2">
+                    <div class="sds-field__name">Legal Business Name</div>
+                  </div>
+                  <div class="sds-field">
+                    <div class="sds-field__value">The Heritage Foundation</div>
+                  </div>
               </div>
             </div>
           </div>
@@ -256,16 +328,18 @@
           <hr class="margin-top-4">
     
           <h3>Executive Compensation</h3>
-          <div class="usa-grid padding-0">
-            <div class="usa-width-one-whole">
-              <p class="basic-card--summary">
-                Registrants in the System for Award Management (SAM) respond to the Executive
-                Compensation questions in accordance with Section 6202 of P.L. 110-252, amending
-                the Federal Funding Accountability and Transparency Act (P.L. 109-282). This
-                information is not displayed in SAM. It is sent to USAspending.gov for display in
-                association with an eligible award. Maintaining an active registration in SAM
-                demonstrates the registrant responded to the questions.
-              </p>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-12">
+                <p class="basic-card--summary">
+                  Registrants in the System for Award Management (SAM) respond to the Executive
+                  Compensation questions in accordance with Section 6202 of P.L. 110-252, amending
+                  the Federal Funding Accountability and Transparency Act (P.L. 109-282). This
+                  information is not displayed in SAM. It is sent to USAspending.gov for display in
+                  association with an eligible award. Maintaining an active registration in SAM
+                  demonstrates the registrant responded to the questions.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -281,25 +355,35 @@
           <h2 class="basic-card--content-title">ENTITY TYPES</h2>
           <hr class="margin-top-4">
           <h3>Business Types</h3>
-          <div class="usa-grid padding-0">
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">Entity Structure</label>
-                <span class="basic-card--data">Corporate Entity (Tax Exempt)</span>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Entity Structure</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Corporate Entity (Tax Exempt)</div>
+                </div>
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Organization Factors*</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Non-Profit Organization</div>
+                </div>
               </div>
-              <div>
-                <label class="basic-card--label">Organization Factors*</label>
-                <span class="basic-card--data">Non-Profit Organization</span>
-              </div>
-            </div>
-            <div class="usa-width-one-half">
-              <div>
-                <label class="basic-card--label">Entity Type</label>
-                <span class="basic-card--data">Non-Profit Organization</span>
-              </div>
-              <div>
-                <label class="basic-card--label">Profit Structure</label>
-                <span class="basic-card--data">Non-Profit Organization</span>
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Entity Type</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Non-Profit Organization</div>
+                </div>
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Profit Structure</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">Non-Profit Organization</div>
+                </div>
               </div>
             </div>
           </div>
@@ -307,42 +391,52 @@
           <hr class="margin-top-4">
     
           <h3>Socio-Economic Types</h3>
-          <div class="usa-grid padding-0">
-            <div class="usa-width-one-half">
-              <label class="basic-card--label">Minority Owned Business</label>
-              <span class="basic-card--data">
-                <ul>
-                  <li>Black American Owned</li>
-                </ul>
-              </span>
-            </div>
-            <div class="usa-width-one-half">
-              <label class="basic-card--label">Woman Owned Business</label>
-              <span class="basic-card--data">
-                <ul>
-                  <li>Woman Owned Small Business</li>
-                  <ul>
-                    <li>
-                      <b>Economically Disadvantaged Woman Owned Small Business</b>
-                    </li>
-                  </ul>
-                </ul>
-              </span>
-            </div>
-          </div>
-          <div class="usa-grid padding-0 margin-top-2">
-            <div class="usa-width-one-half">
-              <div>
-                <div class="text-semibold">SBA Certified 8(a) Program Participant</div>
-                <span class="basic-card--label margin-left-2">Entrance Date: Jun 5, 2003</span>
-                <span class="basic-card--label margin-left-2">Exit Date: Jun 4, 2024</span>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Minority Owned Business</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">
+                    <ul>
+                      <li>Black American Owned</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-col-6">
+                <div class="sds-field margin-top-2">
+                  <div class="sds-field__name">Woman Owned Business</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">
+                    <ul>
+                      <li>Woman Owned Small Business</li>
+                      <ul>
+                        <li>
+                          <b>Economically Disadvantaged Woman Owned Small Business</b>
+                        </li>
+                      </ul>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="usa-width-one-half">
-              <div>
-                <span class="basic-card--data margin-0">Department of Transportation</span>
-                <span class="basic-card--data margin-0">Disadvantaged Business</span>
-                <span class="basic-card--data">Enterprise (DOT DBE)</span>
+            <div class="grid-row">
+              <div class="grid-col-6">
+                <div>
+                  <div class="text-semibold">SBA Certified 8(a) Program Participant</div>
+                  <span class="basic-card--label margin-left-2">Entrance Date: Jun 5, 2003</span>
+                  <span class="basic-card--label margin-left-2">Exit Date: Jun 4, 2024</span>
+                </div>
+              </div>
+              <div class="grid-col-6">
+                <div>
+                  <span class="basic-card--data margin-0">Department of Transportation</span>
+                  <span class="basic-card--data margin-0">Disadvantaged Business</span>
+                  <span class="basic-card--data">Enterprise (DOT DBE)</span>
+                </div>
               </div>
             </div>
           </div>
@@ -365,19 +459,29 @@
           <h2 class="basic-card--content-title">POINTS OF CONTACT</h2>
           <hr class="margin-top-4">
           <h3>Electronic Business POC</h3>
-          <div class="usa-grid padding-0">
-            <div class="usa-width-one-half">
-              <div>
-                <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
-                <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
-                <span class="basic-card--data">240 555-1212 Ext: 2930</span>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-6">
+                <div class="sds-field">
+                  <div class="sds-field__value">MARLA C JONES, PRESIDENT</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">mcjones@essexheritage.org</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">240 555-1212 Ext: 2930</div>
+                </div>
               </div>
-            </div>
-            <div class="usa-width-one-half">
-              <div>
-                <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
-                <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
-                <span class="basic-card--data">UNITED STATES</span>
+              <div class="grid-col-6">
+                <div class="sds-field">
+                  <div class="sds-field__value">1500 ARAGONA BLVD</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">FORT WASHINGTON, MD 20744</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">UNITED STATES</div>
+                </div>
               </div>
             </div>
           </div>
@@ -385,19 +489,29 @@
           <hr class="margin-top-4">
     
           <h3>Government Business POC</h3>
-          <div class="usa-grid padding-0">
-            <div class="usa-width-one-half">
-              <div>
-                <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
-                <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
-                <span class="basic-card--data">240 555-1212 Ext: 2930</span>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-6">
+                <div class="sds-field">
+                  <div class="sds-field__value">MARLA C JONES, PRESIDENT</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">mcjones@essexheritage.org</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">240 555-1212 Ext: 2930</div>
+                </div>
               </div>
-            </div>
-            <div class="usa-width-one-half">
-              <div>
-                <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
-                <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
-                <span class="basic-card--data">UNITED STATES</span>
+              <div class="grid-col-6">
+                <div class="sds-field">
+                  <div class="sds-field__value">1500 ARAGONA BLVD</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">FORT WASHINGTON, MD 20744</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">UNITED STATES</div>
+                </div>
               </div>
             </div>
           </div>
@@ -405,19 +519,29 @@
           <hr class="margin-top-4">
     
           <h3>Government Business Alternate POC</h3>
-          <div class="usa-grid padding-0">
-            <div class="usa-width-one-half">
-              <div>
-                <span class="basic-card--data margin-0">MARLA C JONES, PRESIDENT</span>
-                <span class="basic-card--data margin-0">mcjones@essexheritage.org</span>
-                <span class="basic-card--data">240 555-1212 Ext: 2930</span>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-6">
+                <div class="sds-field">
+                  <div class="sds-field__value">MARLA C JONES, PRESIDENT</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">mcjones@essexheritage.org</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">240 555-1212 Ext: 2930</div>
+                </div>
               </div>
-            </div>
-            <div class="usa-width-one-half">
-              <div>
-                <span class="basic-card--data margin-0">1500 ARAGONA BLVD</span>
-                <span class="basic-card--data margin-0">FORT WASHINGTON, MD 20744</span>
-                <span class="basic-card--data">UNITED STATES</span>
+              <div class="grid-col-6">
+                <div class="sds-field">
+                  <div class="sds-field__value">1500 ARAGONA BLVD</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">FORT WASHINGTON, MD 20744</div>
+                </div>
+                <div class="sds-field">
+                  <div class="sds-field__value">UNITED STATES</div>
+                </div>
               </div>
             </div>
           </div>
